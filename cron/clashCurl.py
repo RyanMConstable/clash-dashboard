@@ -17,7 +17,6 @@ state = clan["state"]
 #print(player)
 print(clan)
 
-
 #If we're checking daily we can grab this and add it to the database
 if state == "inWar" or state == "warEnded":
     uniqueIndex = f"{clan['clan']['tag']}{clan['startTime'].split('T')[0]}"
