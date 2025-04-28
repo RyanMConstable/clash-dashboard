@@ -2,9 +2,9 @@ FROM python:3.12
 
 WORKDIR /cron
 
-COPY /cron/clashCurl.py /cron
+COPY cron/clashCurl.py /cron
 
-COPY /config.py /cron
+COPY config.py /cron
 
 RUN pip install requests
 
