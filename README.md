@@ -1,10 +1,7 @@
 # clash-dashboard
 
 # Setup
-In the base directory add a file named config.py
-In config.py set the following environment variables
+In the base directory edit the config.py file
+Add your clash of clans API token from https://developer.clashofclans.com/
 
 1) TOK = clash of clans token
-2) HEADERS = {"Authorization": f"Bearer {TOK}"}
-3) playerTag = personal clash of clans player tag
-4) clanTag = personal clash of clans clan tag
