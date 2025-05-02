@@ -4,4 +4,3 @@ ENV POSTGRES_PASSWORD=changeme
 ENV POSTGRES_DB=cocdb
 
 COPY db/01-init.sql /docker-entrypoint-initdb.d/
-VOLUME db/pgdata:/var/lib/postgresql/data
