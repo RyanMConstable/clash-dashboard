@@ -15,4 +15,4 @@ jobs:
     - name: Build the Docker image
       run: |
         cd /home/bob/clash-dashboard
-        docker build . -f Dockerfile.db -t clash-db
+        docker build . -f Dockerfile.psql -t clash-db
