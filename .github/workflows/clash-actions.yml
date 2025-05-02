@@ -8,7 +8,6 @@ on:
 jobs:
 
   cron-job:
-    if: contains(join(github.event.commits.*.modified), 'cron/')
     runs-on: self-hosted
 
     steps:
@@ -17,13 +16,3 @@ jobs:
       run: |
         cd /home/bob/clash-dashboard 
         docker build . -f Dockerfile.cron -t clash-cron
-  db-job:
-    if: contains(join(github.event.commits.*.modified), 'db/')
-    runs-on: self-hosted
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: |
-        cd /home/bob/clash-dashboard 
-        docker build . -f Dockerfile.cron -t clash-db
