@@ -3,4 +3,4 @@ FROM postgres:17.4
 ENV POSTGRES_PASSWORD=changeme
 ENV POSTGRES_DB=cocdb
 
-COPY db/01-init.sql /docker-entrypoint-initdb.d/
+COPY 01-init.sql /docker-entrypoint-initdb.d/
