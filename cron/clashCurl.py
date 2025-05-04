@@ -28,54 +28,33 @@ with engine.connect() as conn:
         if result.status_code != 200:
             print(f"[ERROR]: Status code: {result.status_code}")
             continue
-        clantag = result.json()['clan']['tag']
+        
+        json = result.json()
+        clantag = json['clan']['tag']
 
         insertDict = {}
         #Here is where we take the json and set up the insert dictionary
         insertDict['time'] = now
         insertDict['playertag'] = user
-        insertDict['townhalllevel'] =
-        insertDict['townhallweaponlevel'] =
-        insertDict['explevel'] =
-        insertDict['trophies'] =
-        insertDict['besttrophies'] =
-        insertDict['warstars'] =
-        insertDict['attackwins'] =
-        insertDict['defensewins'] =
-        insertDict['builderhalllevel'] =
-        insertDict['builderbasetrophies'] =
-        insertDict['bestbuilderbasetrophies'] =
-        insertDict['role'] =
-        insertDict['warpreference'] =
-        insertDict['donations'] =
-        insertDict['donationsreceived'] =
-        insertDict['clancapitalcontributions'] =
-        insertDict['league'] =
-        insertDict['builderleague'] =
-        insertDict['clantag'] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
-        insertDict[''] =
+        insertDict['townhalllevel'] = json['townHallLevel']
+        insertDict['townhallweaponlevel'] = json['townHallWeaponLevel']
+        insertDict['explevel'] = json['expLevel']
+        insertDict['trophies'] = json['trophies']
+        insertDict['besttrophies'] = json['bestTrophies']
+        insertDict['warstars'] = json['warStars']
+        insertDict['attackwins'] = json['attackWins']
+        insertDict['defensewins'] = json['defenseWins']
+        insertDict['builderhalllevel'] = json['builderHallLevel']
+        insertDict['builderbasetrophies'] = json['builderBaseTrophies']
+        insertDict['bestbuilderbasetrophies'] = json['bestBuilderBaseTrophies']
+        insertDict['role'] = json['role']
+        insertDict['warpreference'] = json['warPreference']
+        insertDict['donations'] = json['donations']
+        insertDict['donationsreceived'] = json['donationsReceived']
+        insertDict['clancapitalcontributions'] = json['clanCapitalContributions']
+        insertDict['league'] = json['league']['name']
+        insertDict['builderleague'] = json['builderBaseLeague']['name']
+        insertDict['clantag'] = json['clan']['tag']
 
         conn.execute(insert(playerhistory), insertDict)
         conn.commit()
