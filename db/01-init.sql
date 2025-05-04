@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS clanwars (
 );
 
 CREATE TABLE IF NOT EXISTS playerhistory (
-  id SERIAL PRIMARY KEY, time TIMESTAMP NOT NULL, playertag VARCHAR(15) NOT NULL, playerdata VARCHAR(255) NOT NULL
+  id SERIAL PRIMARY KEY, time TIMESTAMP NOT NULL, playertag VARCHAR(15) NOT NULL, townhalllevel INTEGER, townhallweaponlevel INTEGER, explevel INTEGER, trophies INTEGER, besttrophies INTEGER, warstars INTEGER, attackwins INTEGER, defensewins INTEGER, builderhalllevel INTEGER, builderbasetrophies INTEGER, bestbuilderbasetrophies INTEGER, role VARCHAR(15), warpreference VARCHAR(5), donations INTEGER, donationsreceived INTEGER, clancapitalcontributions INTEGER, league VARCHAR(30), builderleague VARCHAR(30), clantag VARCHAR(15)
 );
 
 CREATE TABLE IF NOT EXISTS clanhistory (
