@@ -25,6 +25,7 @@ with engine.connect() as conn:
 
 #users is in the format {PLAYERTAG: PHONENUMBER}
 playerhistory = Table("playerhistory", metadata, autoload_with=engine)
+clanhistory = Table("clanhistory", metadata, autoload_with=engine)
 with engine.connect() as conn:
 
     playerClans = set()
@@ -46,7 +47,10 @@ with engine.connect() as conn:
         insertDict['time'] = now
         insertDict['playertag'] = user
         insertDict['townhalllevel'] = json['townHallLevel']
-        insertDict['townhallweaponlevel'] = json['townHallWeaponLevel']
+        if 'townHallWeaponLevel' in json:
+            insertDict['townhallweaponlevel'] = json['townHallWeaponLevel']
+        else:
+            insertDict['townhallweaponlevel'] = 0
         insertDict['explevel'] = json['expLevel']
         insertDict['trophies'] = json['trophies']
         insertDict['besttrophies'] = json['bestTrophies']
@@ -70,5 +74,40 @@ with engine.connect() as conn:
 
     for clan in playerClans:
         if clan not in clans:
+            clans.append(clan)
             conn.execute(insert(clanlist), {'clantag':f'{clan}'})
             conn.commit()
+
+    clans = list(set(clans))
+
+    for clan in clans:
+        encodedClan = quote(clan)
+        url = f"https://api.clashofclans.com/v1/clans/{encodedClan}"
+        result = requests.get(url, headers=HEADERS)
+        if result.status_code != 200:
+            print(f"[ERROR]: Status code: {result.status_code}")
+            continue
+           
+        json = result.json()
+
+        insertDict = {}
+
+        insertDict["time"] =  now
+        insertDict["clantag"] = json["tag"]
+        insertDict["description"] = json["description"]
+        insertDict["clanlevel"] = json["clanLevel"]
+        insertDict["clanpoints"] = json["clanPoints"]
+        insertDict["clanbuilderbasepoints"] = json["clanBuilderBasePoints"]
+        insertDict["clancapitalpoints"] = json["clanCapitalPoints"]
+        insertDict["capitalleague"] = json["capitalLeague"]["name"]
+        insertDict["warwinsstreak"] = json["warWinStreak"]
+        insertDict["warwins"] = json["warWins"]
+        insertDict["warties"] = json["warTies"]
+        insertDict["warlosses"] = json["warLosses"]
+        insertDict["warleague"] = json["warLeague"]["name"]
+        insertDict["members"] = json["members"]
+        insertDict["location"] = json["location"]["name"]
+        insertDict["requiredtrophies"] = json["requiredTrophies"]
+
+        conn.execute(insert(clanhistory), insertDict)
+        conn.commit()
