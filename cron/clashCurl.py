@@ -1,5 +1,5 @@
 import requests
-import urllib.parse
+from urllib.parse import quote
 from config import *
 from sqlalchemy import Table, Column, MetaData, Integer, Computed, event, create_engine, select
 
@@ -16,4 +16,9 @@ with engine.connect() as conn:
         if row[1] not in users:
             users[row[1]] = row[2]
 
-print(users)
+#users is in the format {PLAYERTAG: PHONENUMBER}
+for user in users:
+    encodedUser = quote(user)
+    url = f"https://api.clashofclans.com/v1/players/{encodedUser}"
+    result = requests.get(url, headers=HEADERS)
+    print(result.json())
