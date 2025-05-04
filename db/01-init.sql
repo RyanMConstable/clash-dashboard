@@ -15,5 +15,9 @@ CREATE TABLE IF NOT EXISTS playerhistory (
 );
 
 CREATE TABLE IF NOT EXISTS clanhistory (
-  id SERIAL PRIMARY KEY, time TIMESTAMP NOT NULL, clantag VARCHAR(15) NOT NULL, clandata VARCHAR(255) NOT NULL
+  id SERIAL PRIMARY KEY, time TIMESTAMP NOT NULL, clantag VARCHAR(15) NOT NULL, description VARCHAR(255), clanlevel INTEGER, clanpoints INTEGER, clanbuilderbasepoints INTEGER, clancapitalpoints INTEGER, capitalleague VARCHAR(30), warwinstreak INTEGER, warwins INTEGER, warties INTEGER, warlosses INTEGER, warleague VARCHAR(30), members INTEGER, location VARCHAR(30), requiredtrophies INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS clanlist (
+  id SERIAL PRIMARY KEY, clantag VARCHAR(15) NOT NULL
 );
