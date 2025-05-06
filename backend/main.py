@@ -21,8 +21,6 @@ class Signup(BaseModel):
 
 @app.post("/signup/")
 async def create_item(signup: Signup):
-    # TO DO
-    # Create logic for if someone already signed up
     tags = {}
     with engine.connect() as conn:
         result = conn.execute(select(userinfo))
@@ -31,7 +29,6 @@ async def create_item(signup: Signup):
                 tags[row[1]] = 0
 
         if signup.tag not in tags:
-            #Here we want to check the curl
             encodedTag = quote(signup.tag)
 
             payload = {"token": signup.otp}
