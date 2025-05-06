@@ -1,0 +1,20 @@
+name: Backend Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'backend/**'
+jobs:
+  db-job:
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: |
+        cd /home/bob/clash-dashboard/backend
+        docker build -t clash-backend .
+        cd /home/bob/clash-dashboard
+        docker-compose down
+        docker-compose up -d
