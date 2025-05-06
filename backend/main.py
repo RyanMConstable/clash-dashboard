@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import requests
 from sqlalchemy import Table, select, insert, MetaData, Integer, create_engine
+from config import *
+from urllib.parse import quote
 
 
 engine = create_engine("postgresql://postgres:changeme@db:5432/cocdb")
@@ -30,10 +32,25 @@ async def create_item(signup: Signup):
 
         if signup.tag not in tags:
             #Here we want to check the curl
+            encodedTag = quote(signup.tag)
+
+            payload = {"token": signup.otp}
+            url = f'https://api.clashofclans.com/v1/players/{encodedTag}/verifytoken'
+
+            result = requests.post(url, headers=HEADERS, json=payload)
+            if result.status_code == 500:
+                return {"status":"incorrectplayertag"}
+
+            if result.json()["status"] == "ok":
+                conn.execute(insert(userinfo), {"playertag": signup.tag, "phonenumber": signup.phonenumber, "passwd": signup.password})
+                conn.commit()
+            else:
+                return {"status":"invalidtoken"}
+        else:
+            return {"status":"exists"}
             
         
-
-    return tags
+    return {"status":"ok"}
 
 @app.get("/")
 async def root():
