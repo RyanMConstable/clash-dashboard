@@ -6,7 +6,7 @@ on:
     paths:
       - 'backend/**'
 jobs:
-  db-job:
+  backend-job:
     runs-on: self-hosted
 
     steps:
