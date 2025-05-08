@@ -3,6 +3,7 @@ from pydantic import BaseModel
 import requests
 from sqlalchemy import Table, select, insert, MetaData, Integer, create_engine
 from urllib.parse import quote
+import os
 
 TOK = os.getenv("TOK")
 

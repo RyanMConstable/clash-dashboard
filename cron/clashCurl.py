@@ -3,6 +3,7 @@ from urllib.parse import quote
 from sqlalchemy import Table, Column, MetaData, Integer, Computed, event, create_engine, select, insert
 from datetime import datetime, timezone
 from dotenv import load_dotenv
+import os
 
 TOK = os.getenv("TOK")
 
