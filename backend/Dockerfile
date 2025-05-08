@@ -8,6 +8,4 @@ WORKDIR /backend
 
 COPY main.py /backend
 
-COPY config.py /backend
-
 CMD ["fastapi", "dev", "main.py"]
