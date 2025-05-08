@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import requests
 from sqlalchemy import Table, select, insert, MetaData, Integer, create_engine
-from config import *
 from urllib.parse import quote
 
 TOK = os.getenv("TOK")
