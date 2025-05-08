@@ -9,8 +9,12 @@ services:
     container_name: clash-cron
     depends_on:
       - db
+    environment:
+      - TOK
   backend:
     image: clash-backend
     container_name: clash-backend
     depends_on:
       - db
+    environment:
+      - TOK

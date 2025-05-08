@@ -1,8 +1,10 @@
 import requests
 from urllib.parse import quote
-from config import *
 from sqlalchemy import Table, Column, MetaData, Integer, Computed, event, create_engine, select, insert
 from datetime import datetime, timezone
+from dotenv import load_dotenv
+
+TOK = os.getenv("TOK")
 
 HEADERS = {"Authorization": f"Bearer {TOK}"}
 
