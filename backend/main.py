@@ -5,6 +5,8 @@ from sqlalchemy import Table, select, insert, MetaData, Integer, create_engine
 from config import *
 from urllib.parse import quote
 
+TOK = os.getenv("TOK")
+
 HEADERS = {"Authorization": f"Bearer {TOK}", "Content-Type": "application/json"}
 
 engine = create_engine("postgresql://postgres:changeme@db:5432/cocdb")
