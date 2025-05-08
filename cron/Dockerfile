@@ -6,6 +6,6 @@ COPY clashCurl.py /cron
 
 COPY config.py /cron
 
-RUN pip install requests sqlalchemy psycopg2
+RUN pip install requests sqlalchemy psycopg2 python-dotenv
 
 CMD ["python", "clashCurl.py"]
