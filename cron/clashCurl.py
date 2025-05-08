@@ -4,6 +4,8 @@ from config import *
 from sqlalchemy import Table, Column, MetaData, Integer, Computed, event, create_engine, select, insert
 from datetime import datetime, timezone
 
+HEADERS = {"Authorization": f"Bearer {TOK}"}
+
 now = datetime.now()
 
 engine = create_engine("postgresql://postgres:changeme@db:5432/cocdb")
