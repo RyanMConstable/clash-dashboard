@@ -1,6 +1,5 @@
 services:
   db:
-    build: ./db
     image: clash-db
     container_name: clash-db
     volumes: 
@@ -21,3 +20,11 @@ services:
       - db
     environment:
       - TOK
+  frontend:
+    build: ./frontend
+    image: clash-frontend
+    container_name: clash-frontend
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
