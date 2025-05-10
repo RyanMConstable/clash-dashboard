@@ -30,9 +30,10 @@ function App() {
   const [playertag, setPlayertag] = useState('')
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
+  const [otp, setOtp] = useState('')
 
   const handleSubmit = () => {
-	  alert(`Player Tag: ${playertag}\n Phone number: ${phone}\n Password: ${password}`)
+	  alert(`Player Tag: ${playertag}\nPhone number: ${phone}\nPassword: ${password}\nOTP: ${otp}`)
   };
 
   return (
@@ -41,6 +42,7 @@ function App() {
 	<p><MyComponent inputLabel="Player Tag" value={playertag} onChange={setPlayertag}/></p>
 	<p><MyComponent inputLabel="Phone Number" value={phone} onChange={setPhone}/></p>
 	<p><MyComponent inputLabel="Password" value={password} onChange={setPassword}/></p>
+	<p><MyComponent inputLabel="API token" value={otp} onChange={setOtp}/></p>
       </div>
       <div>
 	<Button label="Submit" onClick={handleSubmit} />
