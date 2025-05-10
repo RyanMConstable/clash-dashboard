@@ -32,8 +32,33 @@ function App() {
   const [password, setPassword] = useState('')
   const [otp, setOtp] = useState('')
 
-  const handleSubmit = () => {
-	  alert(`Player Tag: ${playertag}\nPhone number: ${phone}\nPassword: ${password}\nOTP: ${otp}`)
+  const handleSubmit = async () => {
+	  const payload = {
+		  playertag,
+		  phone,
+		  password,
+		  otp
+	  };
+
+	  try {
+		  const response = await fetch('http://localhost:8000/signup', {
+			  method: 'POST',
+			  headers: {
+				  'Content-Type': 'application/json',
+			  },
+			  body: JSON.stringify(payload),
+		  });
+
+		  if (!response.ok) {
+			  throw new Error('Failed to submit data');
+		  }
+
+		  const data = await response.json();
+		  console.log('Success:', data);
+		} catch (error) {
+			console.error('Error:', error.message);
+		}
+
   };
 
   return (
