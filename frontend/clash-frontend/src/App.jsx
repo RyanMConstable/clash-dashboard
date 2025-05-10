@@ -3,34 +3,47 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function MyComponent({ inputLabel = '' } ) {
-  const [text, setText] = useState('');
+function Button({ label, onClick}) {
+	return (
+		<button className="button" onClick={onClick}>
+		  {label}
+		</button>
+	);
+}
 
-  const handleChange = (event) => {
-      setText(event.target.value);
-  };
-
+function MyComponent({ inputLabel = '', value, onChange }) {
   return (
     <div>
       {inputLabel && <label htmlFor="inputBox">{inputLabel}</label>}
       <input
-	id="inputBox"
+	id={inputLabel}
         type="text"
-        value={text}
-        onChange={handleChange}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
       />
     </div>
   );
 }
 
+
 function App() {
+  const [playertag, setPlayertag] = useState('')
+  const [phone, setPhone] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleSubmit = () => {
+	  alert(`Player Tag: ${playertag}\n Phone number: ${phone}\n Password: ${password}`)
+  };
 
   return (
     <>
       <div className="SignupInfo">
-	<p><MyComponent inputLabel="Player Tag "/></p>
-	<p><MyComponent inputLabel="Phone Number "/></p>
-	<p><MyComponent inputLabel="Password "/></p>
+	<p><MyComponent inputLabel="Player Tag" value={playertag} onChange={setPlayertag}/></p>
+	<p><MyComponent inputLabel="Phone Number" value={phone} onChange={setPhone}/></p>
+	<p><MyComponent inputLabel="Password" value={password} onChange={setPassword}/></p>
+      </div>
+      <div>
+	<Button label="Submit" onClick={handleSubmit} />
       </div>
     </>
   )
