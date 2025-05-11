@@ -10,4 +10,6 @@ CURRENTLY A WORK IN PROGRESS!
 2) Gain more experience with Docker, Kubernetes, GitHub Actions, Git, Python, FastAPI, and React.
 
 # TO DO
-1) Add .env file in root directory for setup for other users and implement it across the board instead of the .env file... use dotenv module in python
+1) Figure out how to run the cron container as a cron, the clash API doesn't enable webhooks or websockets so we have to use polling
+2) Have to add cron checking and python script for war monitoring and twilio texting in real time
+3) Make the frontend signup more pretty, include checking for password length, error if the user exists or the otp is wrong, and add twilio phone verification to make sure that number exists.
