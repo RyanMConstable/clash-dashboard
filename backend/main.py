@@ -22,8 +22,9 @@ class Signup(BaseModel):
     password: str
     otp: str
 
-@app.post("/signup/")
+@app.post("/signup")
 async def create_item(signup: Signup):
+    print(signup.tag, signup.phonenumber, signup.password, signup.otp)
     tags = {}
     with engine.connect() as conn:
         result = conn.execute(select(userinfo))
@@ -41,6 +42,7 @@ async def create_item(signup: Signup):
             if result.status_code == 500:
                 return {"status":"incorrectplayertag"}
 
+            print(result.json())
             if result.json()["status"] == "ok":
                 conn.execute(insert(userinfo), {"playertag": signup.tag, "phonenumber": signup.phonenumber, "passwd": signup.password})
                 conn.commit()
