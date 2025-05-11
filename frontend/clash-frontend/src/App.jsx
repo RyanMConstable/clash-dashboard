@@ -41,7 +41,7 @@ function App() {
 	  };
 
 	  try {
-		  const response = await fetch('http://clash-backend:8000/signup', {
+		  const response = await fetch('/signup', {
 			  method: 'POST',
 			  headers: {
 				  'Content-Type': 'application/json',

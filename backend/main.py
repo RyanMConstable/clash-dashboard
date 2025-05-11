@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import requests
 from sqlalchemy import Table, select, insert, MetaData, Integer, create_engine
+from fastapi.middleware.cors import CORSMiddleware
 from urllib.parse import quote
 import os
 
@@ -15,6 +16,13 @@ userinfo = Table("userinfo", metadata, autoload_with=engine)
 
 app = FastAPI()
 
+app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["http://clash-frontend"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+)
 
 class Signup(BaseModel):
     tag: str
