@@ -34,14 +34,14 @@ function App() {
 
   const handleSubmit = async () => {
 	  const payload = {
-		  playertag,
-		  phone,
-		  password,
-		  otp
+		  "tag": playertag,
+		  "phonenumber": phone,
+		  "password": password,
+		  "otp": otp
 	  };
 
 	  try {
-		  const response = await fetch('/signup', {
+		  const response = await fetch('http://clash-backend:8000/signup', {
 			  method: 'POST',
 			  headers: {
 				  'Content-Type': 'application/json',
