@@ -1,6 +1,7 @@
 import requests
 from urllib.parse import quote
 from sqlalchemy import Table, Column, MetaData, Integer, Computed, event, create_engine, select, insert
+from apscheduler.schedulers.blocking import BlockingScheduler
 from datetime import datetime, timezone
 import os
 
@@ -117,4 +118,6 @@ def updateHistoryTables():
             conn.execute(insert(clanhistory), insertDict)
             conn.commit()
 
-
+scheduler = BlockingScheduler()
+scheduler.add_job(updateHistoryTables, 'interval', seconds=60)
+scheduler.start()
