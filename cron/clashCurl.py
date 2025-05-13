@@ -119,5 +119,5 @@ def updateHistoryTables():
             conn.commit()
 
 scheduler = BlockingScheduler()
-scheduler.add_job(updateHistoryTables, 'interval', seconds=60)
+scheduler.add_job(updateHistoryTables, 'interval', seconds=900)
 scheduler.start()
