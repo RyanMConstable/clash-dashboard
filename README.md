@@ -14,11 +14,12 @@ Install Docker and Docker Compose!
 The full compose is working, the frontend, backend, and db are working. The cron starts up with the compose but only runs once. Currently working on running as a cron.
 
 # Goal
-1) Make an easy to setup fully fleshed out clash of clans dashboard with real time texting alerts.
+- Make an easy to setup fully fleshed out clash of clans dashboard with real time texting alerts.
 
-2) Gain more experience with Docker, Kubernetes, GitHub Actions, Git, Python, FastAPI, and React.
+- Gain more experience with Docker, Kubernetes, GitHub Actions, Git, Python, FastAPI, and React.
 
 # TO DO
-1) Figure out how to run the cron container as a cron, the clash API doesn't enable webhooks or websockets so we have to use polling
-2) Have to add cron checking and python script for war monitoring and twilio texting in real time
-3) Make the frontend signup more pretty, include checking for password length, error if the user exists or the otp is wrong, and add twilio phone verification to make sure that number exists.
+- Have to add cron checking and python script for war monitoring and twilio texting in real time
+- Make the frontend signup more pretty, include checking for password length, error if the user exists or the otp is wrong, and add twilio phone verification to make sure that number exists.
+- Create kubernetes cluster
+- Add argocd to kubernetes cluster
