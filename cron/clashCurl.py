@@ -5,11 +5,10 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 from datetime import datetime, timezone
 import os
 
+TOK = os.getenv("TOK")
+
+HEADERS = {"Authorization": f"Bearer {TOK}"}
 def updateHistoryTables():
-    TOK = os.getenv("TOK")
-
-    HEADERS = {"Authorization": f"Bearer {TOK}"}
-
     now = datetime.now()
 
     engine = create_engine("postgresql://postgres:changeme@db:5432/cocdb")
@@ -119,6 +118,14 @@ def updateHistoryTables():
             conn.commit()
 
 def warUpdates():
+    encodedClan = quote("Put clan tag here")
+    url = f"https://api.clashofclans.com/v1/clans/{encodedClan}/currentwar"
+    result = requests.get(url, headers=HEADERS)
+    if result.status_code != 200:
+        print(f"[ERROR]: Status code: {result.status_code}")
+        
+    json = result.json()
+    print(json)
     return
 
 scheduler = BlockingScheduler()
