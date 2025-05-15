@@ -23,3 +23,4 @@ The full compose is working, the frontend, backend, and db are working. The cron
 - Make the frontend signup more pretty, include checking for password length, error if the user exists or the otp is wrong, and add twilio phone verification to make sure that number exists.
 - Create kubernetes cluster
 - Add argocd to kubernetes cluster
+- Update DB schema
