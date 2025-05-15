@@ -8,10 +8,11 @@ import os
 TOK = os.getenv("TOK")
 
 HEADERS = {"Authorization": f"Bearer {TOK}"}
+engine = create_engine("postgresql://postgres:changeme@db:5432/cocdb")
+
 def updateHistoryTables():
     now = datetime.now()
 
-    engine = create_engine("postgresql://postgres:changeme@db:5432/cocdb")
     metadata = MetaData()
     userinfo = Table("userinfo", metadata, autoload_with=engine)
     clanlist = Table("clanlist", metadata, autoload_with=engine)
