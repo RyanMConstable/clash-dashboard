@@ -8,12 +8,14 @@ import os
 TOK = os.getenv("TOK")
 
 HEADERS = {"Authorization": f"Bearer {TOK}"}
-engine = create_engine("postgresql://postgres:changeme@db:5432/cocdb")
+#engine = create_engine("postgresql://postgres:changeme@db:5432/cocdb")
+engine = create_engine("postgresql://postgres:changeme@localhost:5432/cocdb")
+
+metadata = MetaData()
 
 def updateHistoryTables():
     now = datetime.now()
 
-    metadata = MetaData()
     userinfo = Table("userinfo", metadata, autoload_with=engine)
     clanlist = Table("clanlist", metadata, autoload_with=engine)
 
@@ -119,14 +121,23 @@ def updateHistoryTables():
             conn.commit()
 
 def warUpdates():
-    encodedClan = quote("Put clan tag here")
-    url = f"https://api.clashofclans.com/v1/clans/{encodedClan}/currentwar"
-    result = requests.get(url, headers=HEADERS)
-    if result.status_code != 200:
-        print(f"[ERROR]: Status code: {result.status_code}")
+    clans = []
+
+    clanlist = Table("clanlist", metadata, autoload_with=engine)
+
+    with engine.connect() as conn:
+        result = conn.execute(select(clanlist))
+        for row in result:
+            clans.append(row[1])
+
+    for clan in clans:
+        encodedClan = quote(clan)
+        url = f"https://api.clashofclans.com/v1/clans/{encodedClan}/currentwar"
+        result = requests.get(url, headers=HEADERS)
+        if result.status_code != 200:
+            print(f"[ERROR]: Status code: {result.status_code}")
         
     json = result.json()
-    print(json)
     return
 
 scheduler = BlockingScheduler()
