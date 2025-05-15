@@ -36,22 +36,36 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  border-radius: 10px;
+  border: none;
+  padding: 0.75em 1.5em;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa); /* Blue gradient */
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
 }
 button:hover {
-  border-color: #646cff;
+  background: linear-gradient(135deg, #2563eb, #3b82f6); /* Darker on hover */
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.5);
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+button:active {
+  transform: scale(0.97);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.4);
+}
+button:disabled {
+  background: #9ca3af;
+  color: #e5e7eb;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 @media (prefers-color-scheme: light) {
