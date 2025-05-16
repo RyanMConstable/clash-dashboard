@@ -144,6 +144,8 @@ def warUpdates():
     if json["state"] != "inWar":
         print("Clan not in war")
         return
+    
+    pk = json["startTime"] + json["clan"]["tag"]
 
     return
 
