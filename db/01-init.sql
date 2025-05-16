@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS playerwarattacks (
 );
 
 CREATE TABLE IF NOT EXISTS clanwars (
-  id PRIMARY KEY, INTEGER teamSize, INTEGER attacksPerMember, VARCHAR(35) battleModifier, INTEGER clanLevel, INTEGER attacks, INTEGER stars, FLOAT destructionPercentage, INTEGER enemyClanLevel, INTEGER attacks, INTEGER stars, FLOAT enemyDestructionPercentage, VARCHAR(15) enemyTag
+  id PRIMARY KEY, INTEGER teamSize, INTEGER attacksPerMember, VARCHAR(35) battleModifier, INTEGER clanLevel, INTEGER attacks, INTEGER stars, FLOAT destructionPercentage, INTEGER enemyClanLevel, INTEGER enemyAttacks, INTEGER enemyStars, FLOAT enemyDestructionPercentage, VARCHAR(15) enemyTag
 );
 
 CREATE TABLE IF NOT EXISTS playerhistory (

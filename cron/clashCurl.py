@@ -147,8 +147,26 @@ def warUpdates():
     
     pk = json["startTime"] + json["clan"]["tag"]
 
+    insertDict = {}
+
+    insertDict["id"] = pk
+    insertDict["teamSize"] = json["teamSize"]
+    insertDict["attacksPerMember"] = json["attacksPerMember"]
+    insertDict["battleModifier"] = json["battleModifier"]
+
+    insertDict["clanLevel"] = json["clan"]["clanLevel"]
+    insertDict["attacks"] = json["clan"]["attacks"]
+    insertDict["stars"] = json["clan"]["stars"]
+    insertDict["destructionPercentage"] = json["clan"]["destructionPercentage"]
+
+    insertDict["enemyClanLevel"] = json["opponent"]["clanLevel"]
+    insertDict["enemyAttacks"] = json["opponent"]["attacks"]
+    insertDict["enemyStars"] = json["opponent"]["stars"]
+    insertDict["enemyDestructionPercentage"] = json["opponent"]["destructionPercentage"]
+    insertDict["enemyTag"] = json["opponent"]["tag"]
+
     return
 
 scheduler = BlockingScheduler()
 scheduler.add_job(updateHistoryTables, 'interval', seconds=900)
-scheduler.start()
+schemtted = dt.strftime("%d %B %Y")uler.start()
