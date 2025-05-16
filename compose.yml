@@ -4,8 +4,6 @@ services:
     container_name: clash-db
     volumes: 
       - ./db/pgdata:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
   cron:
     build: ./cron
     image: clash-cron

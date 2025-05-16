@@ -121,8 +121,6 @@ def updateHistoryTables():
             conn.commit()
 
 def warUpdates():
-    now = datetime.now()
-
     clans = []
 
     clanlist = Table("clanlist", metadata, autoload_with=engine)
@@ -172,5 +170,5 @@ def warUpdates():
 scheduler = BlockingScheduler()
 scheduler.add_job(updateHistoryTables, 'interval', seconds=900)
 scheduler.add_job(warUpdates, 'interval', seconds=60)
-schemtted = dt.now().strftime("%d %B %Y")
+schemtted = datetime.now().strftime("%d %B %Y")
 scheduler.start()
