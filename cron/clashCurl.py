@@ -121,6 +121,8 @@ def updateHistoryTables():
             conn.commit()
 
 def warUpdates():
+    now = datetime.now()
+
     clans = []
 
     clanlist = Table("clanlist", metadata, autoload_with=engine)
