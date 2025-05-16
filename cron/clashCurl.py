@@ -126,6 +126,7 @@ def warUpdates():
     clans = []
 
     clanlist = Table("clanlist", metadata, autoload_with=engine)
+    clanwars = Table("clanwars", metadata, autoload_with=engine)
 
     with engine.connect() as conn:
         result = conn.execute(select(clanlist))
@@ -165,8 +166,11 @@ def warUpdates():
     insertDict["enemyDestructionPercentage"] = json["opponent"]["destructionPercentage"]
     insertDict["enemyTag"] = json["opponent"]["tag"]
 
-    return
+    conn.execute(insert(clanwars), insertDict)
+    conn.commit()
 
 scheduler = BlockingScheduler()
 scheduler.add_job(updateHistoryTables, 'interval', seconds=900)
-schemtted = dt.strftime("%d %B %Y")uler.start()
+scheduler.add_job(warUpdates, 'interval', seconds=60)
+schemtted = dt.now().strftime("%d %B %Y")
+scheduler.start()
