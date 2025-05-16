@@ -130,41 +130,41 @@ def warUpdates():
         for row in result:
             clans.append(row[1])
 
-    for clan in clans:
-        encodedClan = quote(clan)
-        url = f"https://api.clashofclans.com/v1/clans/{encodedClan}/currentwar"
-        result = requests.get(url, headers=HEADERS)
-        if result.status_code != 200:
-            print(f"[ERROR]: Status code: {result.status_code}")
+        for clan in clans:
+            encodedClan = quote(clan)
+            url = f"https://api.clashofclans.com/v1/clans/{encodedClan}/currentwar"
+            result = requests.get(url, headers=HEADERS)
+            if result.status_code != 200:
+                print(f"[ERROR]: Status code: {result.status_code}")
         
-        json = result.json()
+            json = result.json()
 
-        if json["state"] != "inWar":
-            print("Clan not in war")
-            return
+            if json["state"] != "inWar":
+                print("Clan not in war")
+                return
     
-        pk = json["startTime"] + json["clan"]["tag"]
+            pk = json["startTime"] + json["clan"]["tag"]
 
-        insertDict = {}
+            insertDict = {}
 
-        insertDict["id"] = pk
-        insertDict["teamSize"] = json["teamSize"]
-        insertDict["attacksPerMember"] = json["attacksPerMember"]
-        insertDict["battleModifier"] = json["battleModifier"]
+            insertDict["id"] = pk
+            insertDict["teamSize"] = json["teamSize"]
+            insertDict["attacksPerMember"] = json["attacksPerMember"]
+            insertDict["battleModifier"] = json["battleModifier"]
 
-        insertDict["clanLevel"] = json["clan"]["clanLevel"]
-        insertDict["attacks"] = json["clan"]["attacks"]
-        insertDict["stars"] = json["clan"]["stars"]
-        insertDict["destructionPercentage"] = json["clan"]["destructionPercentage"]
+            insertDict["clanLevel"] = json["clan"]["clanLevel"]
+            insertDict["attacks"] = json["clan"]["attacks"]
+            insertDict["stars"] = json["clan"]["stars"]
+            insertDict["destructionPercentage"] = json["clan"]["destructionPercentage"]
 
-        insertDict["enemyClanLevel"] = json["opponent"]["clanLevel"]
-        insertDict["enemyAttacks"] = json["opponent"]["attacks"]
-        insertDict["enemyStars"] = json["opponent"]["stars"]
-        insertDict["enemyDestructionPercentage"] = json["opponent"]["destructionPercentage"]
-        insertDict["enemyTag"] = json["opponent"]["tag"]
+            insertDict["enemyClanLevel"] = json["opponent"]["clanLevel"]
+            insertDict["enemyAttacks"] = json["opponent"]["attacks"]
+            insertDict["enemyStars"] = json["opponent"]["stars"]
+            insertDict["enemyDestructionPercentage"] = json["opponent"]["destructionPercentage"]
+            insertDict["enemyTag"] = json["opponent"]["tag"]
 
-        conn.execute(insert(clanwars), insertDict)
-        conn.commit()
+            conn.execute(insert(clanwars), insertDict)
+            conn.commit()
 
 scheduler = BlockingScheduler()
 scheduler.add_job(updateHistoryTables, 'interval', seconds=900)
