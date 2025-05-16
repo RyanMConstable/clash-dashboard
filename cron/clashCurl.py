@@ -138,6 +138,11 @@ def warUpdates():
             print(f"[ERROR]: Status code: {result.status_code}")
         
     json = result.json()
+
+    if json["state"] != "inWar":
+        print("Clan not in war")
+        return
+
     return
 
 scheduler = BlockingScheduler()
