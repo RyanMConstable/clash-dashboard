@@ -148,20 +148,20 @@ def warUpdates():
             insertDict = {}
 
             insertDict["id"] = pk
-            insertDict["teamSize"] = json["teamSize"]
-            insertDict["attacksPerMember"] = json["attacksPerMember"]
-            insertDict["battleModifier"] = json["battleModifier"]
+            insertDict["teamsize"] = json["teamSize"]
+            insertDict["attackspermember"] = json["attacksPerMember"]
+            insertDict["battlemodifier"] = json["battleModifier"]
 
-            insertDict["clanLevel"] = json["clan"]["clanLevel"]
+            insertDict["clanlevel"] = json["clan"]["clanLevel"]
             insertDict["attacks"] = json["clan"]["attacks"]
             insertDict["stars"] = json["clan"]["stars"]
-            insertDict["destructionPercentage"] = json["clan"]["destructionPercentage"]
+            insertDict["destructionpercentage"] = json["clan"]["destructionPercentage"]
 
-            insertDict["enemyClanLevel"] = json["opponent"]["clanLevel"]
-            insertDict["enemyAttacks"] = json["opponent"]["attacks"]
-            insertDict["enemyStars"] = json["opponent"]["stars"]
-            insertDict["enemyDestructionPercentage"] = json["opponent"]["destructionPercentage"]
-            insertDict["enemyTag"] = json["opponent"]["tag"]
+            insertDict["enemyclanlevel"] = json["opponent"]["clanLevel"]
+            insertDict["enemyattacks"] = json["opponent"]["attacks"]
+            insertDict["enemystars"] = json["opponent"]["stars"]
+            insertDict["enemydestructionpercentage"] = json["opponent"]["destructionPercentage"]
+            insertDict["enemytag"] = json["opponent"]["tag"]
 
             conn.execute(insert(clanwars), insertDict)
             conn.commit()
