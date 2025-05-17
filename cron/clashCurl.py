@@ -1,6 +1,6 @@
 import requests
 from urllib.parse import quote
-from sqlalchemy import Table, Column, MetaData, Integer, Computed, event, create_engine, select, insert
+from sqlalchemy import Table, Column, MetaData, Integer, Computed, event, create_engine, select, insert, update
 from apscheduler.schedulers.blocking import BlockingScheduler
 from datetime import datetime, timezone
 import os
@@ -121,6 +121,7 @@ def updateHistoryTables():
 
 def warUpdates():
     clans = []
+    warExists = False
 
     clanlist = Table("clanlist", metadata, autoload_with=engine)
     clanwars = Table("clanwars", metadata, autoload_with=engine)
@@ -129,6 +130,7 @@ def warUpdates():
         result = conn.execute(select(clanlist))
         for row in result:
             clans.append(row[1])
+
 
         for clan in clans:
             encodedClan = quote(clan)
@@ -144,6 +146,12 @@ def warUpdates():
                 return
     
             pk = json["startTime"] + json["clan"]["tag"]
+
+            result = conn.execute(select(clanwars).where(clanwars.c.id == pk)).first() 
+
+            print(result)
+            if result != None:
+                warExists = True
 
             insertDict = {}
 
@@ -163,7 +171,11 @@ def warUpdates():
             insertDict["enemydestructionpercentage"] = json["opponent"]["destructionPercentage"]
             insertDict["enemytag"] = json["opponent"]["tag"]
 
-            conn.execute(insert(clanwars), insertDict)
+            
+            if warExists:
+                conn.execute(update(clanwars).where(clanwars.c.id == insertDict["id"]).values(insertDict))
+            else:
+                conn.execute(insert(clanwars), insertDict)
             conn.commit()
 
 scheduler = BlockingScheduler()
