@@ -178,6 +178,11 @@ def warUpdates():
                 # Find out if there is a new update and then text if changed
                 for player in json["clan"]["members"]:
                     print(player["name"])
+                    if "attacks" not in player:
+                        print(f'{player["name"]} did not attack')
+                    if "bestOpponentAttack" not in player:
+                        print(f'{player["name"]} did not get attacked')
+
             else:
                 conn.execute(insert(clanwars), insertDict)
             conn.commit()
