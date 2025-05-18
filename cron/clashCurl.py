@@ -201,6 +201,9 @@ def warUpdates():
                                 conn.execute(insert(playerwarattacks), insertDict)
                                 conn.commit()
 
+                            else:
+                                print("Attack already exists in the table")
+
                     if "bestOpponentAttack" not in player:
                         playerpk = f'{json["startTime"]}{player["tag"]}'
                         print(f'{player["name"]} did not get attacked')
