@@ -180,7 +180,15 @@ def warUpdates():
                     print(player["name"])
                     if "attacks" not in player:
                         print(f'{player["name"]} did not attack')
+                    else:
+                        for attack in player["attacks"]:
+                            #For each attack for every player create the key
+                            playerpk = f'{json["startTime"]}{player["tag"]}{player["attacks"]["defenderTag"]}'
+                            #Here check for existence in the database before adding vs inserting
+                        
+
                     if "bestOpponentAttack" not in player:
+                        playerpk = f'{json["startTime"]}{player["tag"]}'
                         print(f'{player["name"]} did not get attacked')
 
             else:
