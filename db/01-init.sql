@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS userinfo (
 );
 
 CREATE TABLE IF NOT EXISTS playerwarattacks (
-  id SERIAL PRIMARY KEY, playertag VARCHAR(15) NOT NULL, clantag VARCHAR(15) NOT NULL, time TIMESTAMP NOT NULL, defendertag VARCHAR(15) NOT NULL, stars VARCHAR(1), destructionpercentage VARCHAR(5), theorder VARCHAR(5), duration VARCHAR(5)
+  id VARCHAR(75) PRIMARY KEY, townhalllevel INTEGER, mapposition INTEGER, tag VARCHAR(15), defendertag VARCHAR(15), stars INTEGER, destructionpercentage FLOAT, ordernum INTEGER, duration INTEGER 
 );
 
 CREATE TABLE IF NOT EXISTS clanwars (
