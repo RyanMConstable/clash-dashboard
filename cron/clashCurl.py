@@ -176,6 +176,8 @@ def warUpdates():
                 conn.execute(update(clanwars).where(clanwars.c.id == insertDict["id"]).values(insertDict))
                 # TO DO
                 # Find out if there is a new update and then text if changed
+                for player in json["clan"]["members"]:
+                    print(player["name"])
             else:
                 conn.execute(insert(clanwars), insertDict)
             conn.commit()
