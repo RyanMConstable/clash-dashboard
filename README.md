@@ -11,7 +11,7 @@ Install Docker and Docker Compose!
 5) You can now visit the frontend in the browser
 
 # Status
-The full compose is working, the frontend, backend, and db are working. The cron starts up with the compose but only runs once. Currently working on running as a cron.
+The database is in a workable state, player and clan history are recorded every 15 minutes and recorded. The UI boots up and is able to create a user row in the signup table.
 
 # Goal
 - Make an easy to setup fully fleshed out clash of clans dashboard with real time texting alerts.
@@ -23,4 +23,4 @@ The full compose is working, the frontend, backend, and db are working. The cron
 - Make the frontend signup more pretty, include checking for password length, error if the user exists or the otp is wrong, and add twilio phone verification to make sure that number exists.
 - Create kubernetes cluster
 - Add argocd to kubernetes cluster
-- Update DB schema
+- Update DB schema (only for playerwarattacks everything else is final)
