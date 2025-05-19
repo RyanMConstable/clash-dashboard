@@ -23,3 +23,6 @@ The database is in a workable state, player and clan history are recorded every 
 - Make the frontend signup more pretty, include checking for password length, error if the user exists or the otp is wrong, and add twilio phone verification to make sure that number exists.
 - Create kubernetes cluster
 - Add argocd to kubernetes cluster
+- Add logging, most likely another container with everything flowing into it
+- Add TLS internal use
+- Add proper authorization
