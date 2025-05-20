@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import './EntryPages.css'
+import './SignupPage.css'
 
 function Button({ label, onClick}) {
 	return (
-		<button className="button" onClick={onClick}>
+		<button className="container-button" onClick={onClick}>
 		  {label}
 		</button>
 	);

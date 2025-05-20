@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './EntryPages.css'
 
 function LoginPage() {
   return (
