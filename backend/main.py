@@ -30,7 +30,7 @@ class Signup(BaseModel):
     password: str
     otp: str
 
-@app.post("/signup")
+@app.post("/api/signup")
 async def create_item(signup: Signup):
     print(signup.tag, signup.phonenumber, signup.password, signup.otp)
     tags = {}
