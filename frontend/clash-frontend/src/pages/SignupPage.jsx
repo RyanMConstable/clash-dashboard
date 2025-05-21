@@ -64,6 +64,7 @@ function SignupPage() {
     <>
       <div className="InfoBox">
         <div className="SignupInfo">
+	  <h2>Sign Up</h2>
 	  <div><MyComponent inputLabel="Player Tag" value={playertag} onChange={setPlayertag}/></div>
 	  <div><MyComponent inputLabel="Phone Number" value={phone} onChange={setPhone}/></div>
 	  <div><MyComponent inputLabel="Password" value={password} onChange={setPassword}/></div>
