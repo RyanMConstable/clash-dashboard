@@ -1,9 +1,16 @@
+.InfoBox {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
 .SignupInfo {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
 }
 

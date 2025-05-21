@@ -62,14 +62,16 @@ function SignupPage() {
 
   return (
     <>
-      <div className="SignupInfo">
-	<div><MyComponent inputLabel="Player Tag" value={playertag} onChange={setPlayertag}/></div>
-	<div><MyComponent inputLabel="Phone Number" value={phone} onChange={setPhone}/></div>
-	<div><MyComponent inputLabel="Password" value={password} onChange={setPassword}/></div>
-	<div><MyComponent inputLabel="API token" value={otp} onChange={setOtp}/></div>
-      </div>
-      <div>
-	<Button label="Submit" onClick={handleSubmit} />
+      <div className="InfoBox">
+        <div className="SignupInfo">
+	  <div><MyComponent inputLabel="Player Tag" value={playertag} onChange={setPlayertag}/></div>
+	  <div><MyComponent inputLabel="Phone Number" value={phone} onChange={setPhone}/></div>
+	  <div><MyComponent inputLabel="Password" value={password} onChange={setPassword}/></div>
+	  <div><MyComponent inputLabel="API token" value={otp} onChange={setOtp}/></div>
+        </div>
+        <div>
+	  <Button label="Submit" onClick={handleSubmit} />
+        </div>
       </div>
     </>
   )
