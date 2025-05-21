@@ -11,15 +11,14 @@ function Button({ label, onClick}) {
 
 function MyComponent({ inputLabel = '', value, onChange }) {
   return (
-    <div>
-      <div>
-        {inputLabel && <label htmlFor="inputBox">{inputLabel}</label>}
-      </div>
+    <div className="form-group">
       <input
+	placeholder={inputLabel}
 	id={inputLabel}
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
+	className="styled-input"
       />
     </div>
   );
