@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './SignupPage.css'
+import { useNavigate } from 'react-router-dom';
 
 function Button({ label, onClick}) {
 	return (
@@ -34,6 +35,8 @@ function SignupPage() {
 
   const [errors, setErrors] = useState({ playertag: '', otp: '' });
 
+  const navigate = useNavigate();
+
   const handleSubmit = async () => {
 	  const payload = {
 		  "tag": playertag,
@@ -65,6 +68,8 @@ function SignupPage() {
 			  setErrors({ playertag: '', otp: 'Invalid Token' });
 		  } else if (data.status === 'exists') {
 			  setErrors({ playertag: 'Account already exists', otp: '' });
+		  } else if (data.status === 'ok') {
+			  navigate('/dashboard');
 		  } else {
 			  setErrors({ playertag: '', otp: '' });
 		  }
