@@ -97,3 +97,10 @@ input[type="password"]:focus {
   border: 2px solid #e53935 !important;
   background-color: #fff5f5;
 }
+
+.input-error-text {
+  color: #e53935;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  margin-left: 4px;
+}
