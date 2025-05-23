@@ -61,7 +61,7 @@ function LoginPage() {
 		  if (data.status === 'ok') {
 			  navigate('/dashboard');
 		  } else {
-			  setErrors({ playertag: '', otp: '' });
+			  setErrors({ playertag: '', password: 'Incorrect Login' });
 		  }
 	} catch (error) {
 		console.error('Error:', error.message);
