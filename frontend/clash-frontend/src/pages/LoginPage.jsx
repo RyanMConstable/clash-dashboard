@@ -37,7 +37,7 @@ function LoginPage() {
 
   const handleSubmit = async () => {
 	  const payload = {
-		  "tag": playertag,
+		  "user": playertag,
 		  "password": password,
 	  };
 

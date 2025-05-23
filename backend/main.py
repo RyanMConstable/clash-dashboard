@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import requests
-from sqlalchemy import Table, select, insert, MetaData, Integer, create_engine
+from sqlalchemy import Table, select, insert, MetaData, Integer, create_engine, and_
 from fastapi.middleware.cors import CORSMiddleware
 from urllib.parse import quote
 import os
@@ -69,14 +69,15 @@ async def create_item(signup: Signup):
 @app.post("/api/login")
 async def create_item(login: Login):
     with engine.connect() as conn:
-        result = conn.execute(query(userinfo).filter(
-            userinfo.playertag == login.user,
-            userinfo.password == login.password
-            ).first()
-                              )
+        result = conn.execute(select(userinfo).where(and_(
+            userinfo.c.playertag == login.user,
+            userinfo.c.passwd == login.password
+            )
+                            )
+                              ).fetchone()
 
-        if not user:
-            raise HTTPException(status_code=401, detail="Invalid credentials")
+        if result is None:
+            return {"status": "invalid"}
 
-    return {"status": "ok", "user_id": user.id}
+    return {"status": "ok"}
 
