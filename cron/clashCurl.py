@@ -191,6 +191,7 @@ def warUpdates():
                             playerpk = f'{json["startTime"]}{player["tag"]}{attack["defenderTag"]}'
                             #Here check for existence in the database before adding vs inserting
                             result = conn.execute(select(playerwarattacks).where(playerwarattacks.c.id == playerpk)) 
+                            result = result.fetchone()
                             if result is None:
                                 insertDict = {}
                                 insertDict["id"] = playerpk
