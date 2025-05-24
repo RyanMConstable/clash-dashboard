@@ -3,11 +3,12 @@ import {useParams } from 'react-router-dom';
 
 function Dashboard() {
   const { clantag } = useParams();
+  console.log('clantag from useParams:', clantag);
 
   return (
     <>
       <div>
-	  <p>Dashboard</p>
+	  <h1>Dashboard for clan: { clantag || "No clan tag provided"}</h1>
       </div>
     </>
   )
