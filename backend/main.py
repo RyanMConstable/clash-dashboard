@@ -90,5 +90,5 @@ async def create_item(login: Login):
 
         print(f'Playerhistory: {result}')
 
-    return {"status": "ok"}
+    return {"status": "ok", "clantag": result[-1]}
 
