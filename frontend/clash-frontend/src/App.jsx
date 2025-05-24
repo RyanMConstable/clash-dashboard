@@ -14,6 +14,7 @@ function App() {
 	<Route path="/signup" element={<SignupPage />} />
 	<Route path="/login" element={<LoginPage />} />
 	<Route path="/dashboard" element={<Dashboard />} />
+	<Route path="/dashboard/:clantag" element={<Dashboard />} />
       </Routes>
     </Router>
   )

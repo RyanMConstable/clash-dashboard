@@ -1,6 +1,9 @@
-import { useState } from 'react'
+import React from 'react';
+import {useParams } from 'react-router-dom';
 
-function LoginPage() {
+function Dashboard() {
+  const { clantag } = useParams();
+
   return (
     <>
       <div>
@@ -10,4 +13,4 @@ function LoginPage() {
   )
 }
 
-export default LoginPage
+export default Dashboard 

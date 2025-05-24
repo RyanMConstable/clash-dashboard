@@ -59,7 +59,8 @@ function LoginPage() {
 		  console.log(data["status"]);
 
 		  if (data.status === 'ok') {
-			  navigate('/dashboard');
+			  const clantag = data.clantag;
+			  navigate(`/dashboard/${clantag}`);
 		  } else {
 			  setErrors({ playertag: '', password: 'Incorrect Login' });
 		  }
