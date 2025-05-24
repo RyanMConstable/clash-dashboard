@@ -190,7 +190,7 @@ def warUpdates():
                             #For each attack for every player create the key
                             playerpk = f'{json["startTime"]}{player["tag"]}{attack["defenderTag"]}'
                             #Here check for existence in the database before adding vs inserting
-                            result = conn.execute(select(playerwarattacks).where(clanwars.c.id == playerpk)) 
+                            result = conn.execute(select(playerwarattacks).where(playerwarattacks.c.id == playerpk)) 
                             if result is None:
                                 insertDict = {}
                                 insertDict["id"] = playerpk
