@@ -28,7 +28,7 @@ def updateHistoryTables():
                 users[row[1]] = row[2]
         result = conn.execute(select(clanlist))
         for row in result:
-            clans.append(row[1])
+            clans.append(row[0])
 
     #users is in the format {PLAYERTAG: PHONENUMBER}
     playerhistory = Table("playerhistory", metadata, autoload_with=engine)
@@ -88,7 +88,7 @@ def updateHistoryTables():
         for clan in playerClans.keys():
             if clan not in clans:
                 clans.append(clan)
-                conn.execute(insert(clanlist), {'clantag':f'{playerClans[clan]}', 'clanname':f'{playerClans[clan]}'})
+                conn.execute(insert(clanlist), {'clantag':f'{clan}', 'clanname':f'{playerClans[clan]}'})
                 conn.commit()
 
         clans = list(set(clans))

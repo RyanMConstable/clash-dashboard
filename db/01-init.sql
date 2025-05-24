@@ -19,5 +19,5 @@ CREATE TABLE IF NOT EXISTS clanhistory (
 );
 
 CREATE TABLE IF NOT EXISTS clanlist (
-  id SERIAL PRIMARY KEY, clantag VARCHAR(15) NOT NULL, clanname VARCHAR(100)
+  clantag VARCHAR(15) PRIMARY KEY, clanname VARCHAR(100)
 );
