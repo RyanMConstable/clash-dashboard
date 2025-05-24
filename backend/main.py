@@ -12,7 +12,6 @@ HEADERS = {"Authorization": f"Bearer {TOK}", "Content-Type": "application/json"}
 
 engine = create_engine("postgresql://postgres:changeme@db:5432/cocdb")
 metadata = MetaData()
-userinfo = Table("userinfo", metadata, autoload_with=engine)
 
 app = FastAPI()
 
@@ -36,6 +35,8 @@ class Login(BaseModel):
 
 @app.post("/api/signup")
 async def create_item(signup: Signup):
+    userinfo = Table("userinfo", metadata, autoload_with=engine)
+
     print(signup.tag, signup.phonenumber, signup.password, signup.otp)
     tags = {}
     with engine.connect() as conn:
