@@ -13,6 +13,7 @@ HEADERS = {"Authorization": f"Bearer {TOK}", "Content-Type": "application/json"}
 engine = create_engine("postgresql://postgres:changeme@db:5432/cocdb")
 metadata = MetaData()
 userinfo = Table("userinfo", metadata, autoload_with=engine)
+playerhistory = Table("playerhistory", metadata, autoload_with=engine)
 
 app = FastAPI()
 
@@ -78,6 +79,13 @@ async def create_item(login: Login):
 
         if result is None:
             return {"status": "invalid"}
+
+        result = conn.execute(select(playerhistory).where(
+            playerhistory.c.playertag == login.user
+            )
+                              ).fetchone()
+
+        print('Playerhistory: {result}')
 
     return {"status": "ok"}
 
