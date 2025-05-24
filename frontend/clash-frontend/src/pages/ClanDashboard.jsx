@@ -45,7 +45,7 @@ const pieData = [
       <div>
 	  <h1>{ clantag }</h1>
 	  <div>
-          	<h2>Attacks used</h2>
+          	<h2>Current War Attack Usage</h2>
 	  	<PieChart width={400} height={300}>
 	  		<Pie
 	  			data={pieData}
