@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel
 import requests
-from sqlalchemy import Table, select, insert, MetaData, Integer, create_engine, and_
+from sqlalchemy import Table, select, insert, MetaData, Integer, create_engine, and_, func
 from fastapi.middleware.cors import CORSMiddleware
 from urllib.parse import quote
 import os
@@ -94,5 +94,15 @@ async def create_item(login: Login):
 
 @app.get("/api/clandashboard")
 async def get_clan_dashboard(clantag: str = Query(..., description="Clan tag to fetch data")):
-    return {"status": "This is a test"}
+    
+    clanwars = Table("clanwars", metadata, autoload_with=engine)
+    
+    with engine.connect() as conn:
+        stmt = select(clanwars).where(
+                func.split_part(clanwars.c.id, '#', 2) == "28PP9C2VY"
+                )
+        result = conn.execute(stmt).mappings().fetchone()
+    print(result)
+
+    return {"status": result}
 
