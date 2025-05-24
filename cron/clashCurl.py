@@ -46,6 +46,7 @@ def updateHistoryTables():
                 continue
         
             json = result.json()
+            print(json)
             clantag = json['clan']['tag']
             playerClans.add(clantag)
 
@@ -125,6 +126,7 @@ def warUpdates():
 
     clanlist = Table("clanlist", metadata, autoload_with=engine)
     clanwars = Table("clanwars", metadata, autoload_with=engine)
+    playerwarattacks = Table("playerwarattacks", metadata, autoload_with=engine)
 
     with engine.connect() as conn:
         result = conn.execute(select(clanlist))
@@ -183,20 +185,20 @@ def warUpdates():
                     else:
                         for attack in player["attacks"]:
                             #For each attack for every player create the key
-                            playerpk = f'{json["startTime"]}{player["tag"]}{player["attacks"]["defenderTag"]}'
+                            playerpk = f'{json["startTime"]}{player["tag"]}{attack["defenderTag"]}'
                             #Here check for existence in the database before adding vs inserting
-                            result = conn.execute(select(playerwarattacks).where(clanwars.c.id == playerpk)).first() 
+                            result = conn.execute(select(playerwarattacks).where(clanwars.c.id == playerpk)) 
                             if result is None:
                                 insertDict = {}
                                 insertDict["id"] = playerpk
                                 insertDict["townhalllevel"] = player["townhallLevel"]
                                 insertDict["mapposition"] = player["mapPosition"]
                                 insertDict["tag"] = player["tag"]
-                                insertDict["defendertag"] = player["attacks"]["defenderTag"]
-                                insertDict["stars"] = player["attacks"]["stars"]
-                                insertDict["destructionpercentage"] = player["attacks"]["destructionPercentage"]
-                                insertDict["odernum"] = player["attacks"]["order"]
-                                insertDict["duration"] = player["attacks"]["duration"]
+                                insertDict["defendertag"] = attack["defenderTag"]
+                                insertDict["stars"] = attack["stars"]
+                                insertDict["destructionpercentage"] = attack["destructionPercentage"]
+                                insertDict["odernum"] = attack["order"]
+                                insertDict["duration"] = attack["duration"]
 
                                 conn.execute(insert(playerwarattacks), insertDict)
                                 conn.commit()
