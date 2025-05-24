@@ -35,7 +35,7 @@ def updateHistoryTables():
     clanhistory = Table("clanhistory", metadata, autoload_with=engine)
     with engine.connect() as conn:
 
-        playerClans = set()
+        playerClans = {}
 
         for user in users:
             encodedUser = quote(user)
@@ -48,7 +48,9 @@ def updateHistoryTables():
             json = result.json()
             print(json)
             clantag = json['clan']['tag']
-            playerClans.add(clantag)
+            clanname = json['clan']['name']
+
+            playerClans[clantag] = clanname
 
             insertDict = {}
             #Here is where we take the json and set up the insert dictionary
@@ -83,10 +85,10 @@ def updateHistoryTables():
             conn.execute(insert(playerhistory), insertDict)
             conn.commit()
 
-        for clan in playerClans:
+        for clan in playerClans.keys():
             if clan not in clans:
                 clans.append(clan)
-                conn.execute(insert(clanlist), {'clantag':f'{clan}'})
+                conn.execute(insert(clanlist), {'clantag':f'{playerClans[clan]}', 'clanname':f'{playerClans[clan]}'})
                 conn.commit()
 
         clans = list(set(clans))
