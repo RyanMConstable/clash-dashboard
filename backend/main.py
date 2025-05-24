@@ -102,7 +102,6 @@ async def get_clan_dashboard(clantag: str = Query(..., description="Clan tag to 
                 func.split_part(clanwars.c.id, '#', 2) == "28PP9C2VY"
                 )
         result = conn.execute(stmt).mappings().fetchone()
-    print(result)
 
-    return {"status": result}
+    return {"status": "ok", "clanvalues": result}
 
