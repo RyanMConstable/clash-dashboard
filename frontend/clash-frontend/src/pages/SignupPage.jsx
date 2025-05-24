@@ -69,7 +69,7 @@ function SignupPage() {
 		  } else if (data.status === 'exists') {
 			  setErrors({ playertag: 'Account already exists', otp: '' });
 		  } else if (data.status === 'ok') {
-			  navigate('/dashboard');
+			  navigate('/clandashboard');
 		  } else {
 			  setErrors({ playertag: '', otp: '' });
 		  }

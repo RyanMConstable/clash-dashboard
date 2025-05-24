@@ -1,7 +1,7 @@
 import React from 'react';
 import {useParams } from 'react-router-dom';
 
-function Dashboard() {
+function ClanDashboard() {
   const { clantag } = useParams();
   console.log('clantag from useParams:', clantag);
 
@@ -14,4 +14,4 @@ function Dashboard() {
   )
 }
 
-export default Dashboard 
+export default ClanDashboard 
