@@ -94,14 +94,20 @@ async def create_item(login: Login):
 
 @app.get("/api/clandashboard")
 async def get_clan_dashboard(clantag: str = Query(..., description="Clan tag to fetch data")):
+    fulltag = '#' + clantag
     
     clanwars = Table("clanwars", metadata, autoload_with=engine)
+    clanlist = Table("clanlist", metadata, autoload_with=engine)
     
     with engine.connect() as conn:
         stmt = select(clanwars).where(
-                func.split_part(clanwars.c.id, '#', 2) == "28PP9C2VY"
+                func.split_part(clanwars.c.id, '#', 2) == clantag
                 )
         result = conn.execute(stmt).mappings().fetchone()
 
-    return {"status": "ok", "clanvalues": result, "clanname": "test"}
+        clanname = conn.execute(select(clanlist).where(
+                clanlist.c.clantag == fulltag
+                )).fetchone()
 
+
+    return {"status": "ok", "clanvalues": result, "clanname": clanname[1]}
