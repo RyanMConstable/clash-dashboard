@@ -73,7 +73,10 @@ def updateHistoryTables():
             insertDict['donations'] = json['donations']
             insertDict['donationsreceived'] = json['donationsReceived']
             insertDict['clancapitalcontributions'] = json['clanCapitalContributions']
-            insertDict['league'] = json['league']['name']
+            if 'league' in json:
+                insertDict['league'] = json['league']['name']
+            else:
+                insertDict['league'] = 'None'
             insertDict['builderleague'] = json['builderBaseLeague']['name']
             insertDict['clantag'] = json['clan']['tag']
 
