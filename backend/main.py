@@ -92,3 +92,7 @@ async def create_item(login: Login):
 
     return {"status": "ok", "clantag": result[-1][1:]}
 
+@app.get("/api/clandashboard")
+async def get_clan_dashboard(clantag: str = Query(..., description="Clan tag to fetch data")):
+    return {"status": "This is a test"}
+
