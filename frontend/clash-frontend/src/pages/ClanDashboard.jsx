@@ -1,12 +1,15 @@
-import React from 'react';
 import {useParams } from 'react-router-dom';
-import {useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
+import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+
+const COLORS = ['#8096a8', '#70d484'];
 
 function ClanDashboard() {
   const { clantag } = useParams();
   const [clanData, setClanData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
 
 
   useEffect(() => {
@@ -17,7 +20,7 @@ function ClanDashboard() {
 				  throw new Error('Failed to fetch clan data');
 			  }
 			  const data = await response.json();
-			  setClanData(data);
+			  setClanData(data.clanvalues);
 		  } catch (err) {
 			  setError(err.message);
 		  } finally {
@@ -30,12 +33,38 @@ function ClanDashboard() {
 
 if (loading) return <p>Loading clan data...</p>;
 if (error) return <p>Error: {error}</p>;
+if (!clanData) return <p>No clan data found.</p>;
+
+const pieData = [
+	{ name: 'Total attacks', value: clanData.teamsize * clanData.attackspermember },
+	{ name: 'Attacks used', value: clanData.attacks }
+];
 
   return (
     <>
       <div>
 	  <h1>{ clantag }</h1>
-	  <pre>{JSON.stringify(clanData, null, 2)}</pre>
+	  <div>
+          	<h2>Attacks used</h2>
+	  	<PieChart width={400} height={300}>
+	  		<Pie
+	  			data={pieData}
+	  			dataKey="value"
+	  			nameKey="name"
+	  			cx="50%"
+	  			cy="50%"
+	  			outerRadius={100}
+	  			fill="#8884d8"
+	  			label
+	  		>
+	  		{pieData.map((entry, index) => (
+				<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+			))}
+	  		</Pie>
+	  		<Tooltip />
+	  		<Legend />
+	  	</PieChart>
+	  </div>
       </div>
     </>
   )
