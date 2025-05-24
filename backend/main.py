@@ -103,5 +103,5 @@ async def get_clan_dashboard(clantag: str = Query(..., description="Clan tag to 
                 )
         result = conn.execute(stmt).mappings().fetchone()
 
-    return {"status": "ok", "clanvalues": result}
+    return {"status": "ok", "clanvalues": result, "clanname": "test"}
 

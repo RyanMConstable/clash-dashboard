@@ -136,7 +136,7 @@ def warUpdates():
     with engine.connect() as conn:
         result = conn.execute(select(clanlist))
         for row in result:
-            clans.append(row[1])
+            clans.append(row[0])
 
 
         for clan in clans:
@@ -146,7 +146,9 @@ def warUpdates():
             if result.status_code != 200:
                 print(f"[ERROR]: Status code: {result.status_code}")
         
+            print(result)
             json = result.json()
+            print(json)
 
             if json["state"] != "inWar":
                 print("Clan not in war")
