@@ -38,7 +38,7 @@ if (error) return <p>Error: {error}</p>;
 if (!clanData) return <p>No clan data found.</p>;
 
 const pieData = [
-	{ name: 'Total attacks', value: clanData.teamsize * clanData.attackspermember },
+	{ name: 'Total attacks', value: (clanData.teamsize * clanData.attackspermember) - clanData.attacks },
 	{ name: 'Attacks used', value: clanData.attacks }
 ];
 
