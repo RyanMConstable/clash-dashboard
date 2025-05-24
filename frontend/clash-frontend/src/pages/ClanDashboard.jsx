@@ -9,6 +9,7 @@ function ClanDashboard() {
   const [clanData, setClanData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [clanname, setClanname] = useState('');
 
 
 
@@ -21,6 +22,7 @@ function ClanDashboard() {
 			  }
 			  const data = await response.json();
 			  setClanData(data.clanvalues);
+			  setClanname(data.clanname);
 		  } catch (err) {
 			  setError(err.message);
 		  } finally {
@@ -43,7 +45,7 @@ const pieData = [
   return (
     <>
       <div>
-	  <h1>{ clantag }</h1>
+	  <h1>{ clanname }</h1>
 	  <div>
           	<h2>Current War Attack Usage</h2>
 	  	<PieChart width={400} height={300}>
