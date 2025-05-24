@@ -19,8 +19,7 @@ The database is in a workable state, player and clan history are recorded every 
 - Gain more experience with Docker, Kubernetes, GitHub Actions, Git, Python, FastAPI, and React.
 
 # TO DO
-- Have to add cron checking and python script for war monitoring and twilio texting in real time
-- Make the frontend signup more pretty, include checking for password length, error if the user exists or the otp is wrong, and add twilio phone verification to make sure that number exists.
+- Finish /api/clandashboard backend request to send actual data to the frontend
 - Create kubernetes cluster
 - Add argocd to kubernetes cluster
 - Add logging, most likely another container with everything flowing into it
