@@ -3,12 +3,20 @@ import {useParams } from 'react-router-dom';
 
 function ClanDashboard() {
   const { clantag } = useParams();
-  console.log('clantag from useParams:', clantag);
+
+  const fetchClanData = async (clantag) => {
+	  const reponse = await fetch(`/api/clandashboard?clantag=${encodeURIComponent(clantag)}`);
+	  if (!response.ok) throw new Error("Failed to fetch clan data");
+	  const data = await response.json();
+	  console.log(data);
+	  return data;
+  };
+
 
   return (
     <>
       <div>
-	  <h1>Dashboard for clan: { clantag || "No clan tag provided"}</h1>
+	  <h1>{ clantag }</h1>
       </div>
     </>
   )
