@@ -13,7 +13,6 @@ HEADERS = {"Authorization": f"Bearer {TOK}", "Content-Type": "application/json"}
 engine = create_engine("postgresql://postgres:changeme@db:5432/cocdb")
 metadata = MetaData()
 userinfo = Table("userinfo", metadata, autoload_with=engine)
-playerhistory = Table("playerhistory", metadata, autoload_with=engine)
 
 app = FastAPI()
 
@@ -69,6 +68,9 @@ async def create_item(signup: Signup):
 
 @app.post("/api/login")
 async def create_item(login: Login):
+    userinfo = Table("userinfo", metadata, autoload_with=engine)
+    playerhistory = Table("playerhistory", metadata, autoload_with=engine)
+
     with engine.connect() as conn:
         result = conn.execute(select(userinfo).where(and_(
             userinfo.c.playertag == login.user,
@@ -76,7 +78,7 @@ async def create_item(login: Login):
             )
                             )
                               ).fetchone()
-
+        print(f'Userinfo: {result}')
         if result is None:
             return {"status": "invalid"}
 
@@ -85,7 +87,7 @@ async def create_item(login: Login):
             )
                               ).fetchone()
 
-        print('Playerhistory: {result}')
+        print(f'Playerhistory: {result}')
 
     return {"status": "ok"}
 
