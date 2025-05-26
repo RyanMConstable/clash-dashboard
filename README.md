@@ -19,7 +19,6 @@ The database is in a workable state, player and clan history are recorded every 
 - Gain more experience with Docker, Kubernetes, GitHub Actions, Git, Python, FastAPI, and React.
 
 # TO DO
-- Finish /api/clandashboard backend request to send actual data to the frontend
 - Create kubernetes cluster
 - Add argocd to kubernetes cluster
 - Add logging, most likely another container with everything flowing into it
