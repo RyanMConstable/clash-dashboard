@@ -50,6 +50,10 @@ const pieDataStars = [
 	{ name: 'Available Stars', value: (clanData.teamsize * 3) - clanData.stars },
 	{ name: 'Stars Gained', value: clanData.stars }
 ];
+const pieDataEnemyStars = [
+	{ name: 'Available Stars', value: (clanData.teamsize * 3) - clanData.enemystars },
+	{ name: 'Stars Gained', value: clanData.enemystars }
+];
 
   return (
     <>
@@ -104,6 +108,27 @@ const pieDataStars = [
 	  	<PieChart width={400} height={300}>
 	  		<Pie
 	  			data={pieDataStars}
+	  			dataKey="value"
+	  			nameKey="name"
+	  			cx="50%"
+	  			cy="50%"
+	  			outerRadius={100}
+	  			fill="#8884d8"
+	  			label
+	  		>
+	  		{pieData.map((entry, index) => (
+				<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+			))}
+	  		</Pie>
+	  		<Tooltip />
+	  		<Legend />
+	  	</PieChart>
+	  </div>
+	  <div class="chart">
+          	<h2>Enemy Current Stars</h2>
+	  	<PieChart width={400} height={300}>
+	  		<Pie
+	  			data={pieDataEnemyStars}
 	  			dataKey="value"
 	  			nameKey="name"
 	  			cx="50%"
