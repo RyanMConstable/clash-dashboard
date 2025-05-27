@@ -1,6 +1,7 @@
 import {useParams } from 'react-router-dom';
 import React, {useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+import "./ClanDashboard.css"
 
 const COLORS = ['#8096a8', '#70d484'];
 
@@ -46,7 +47,7 @@ const pieData = [
     <>
       <div>
 	  <h1>{ clanname }</h1>
-	  <div>
+	  <div class="chart">
           	<h2>Current War Attack Usage</h2>
 	  	<PieChart width={400} height={300}>
 	  		<Pie
