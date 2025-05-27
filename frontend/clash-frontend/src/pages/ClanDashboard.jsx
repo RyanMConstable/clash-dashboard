@@ -49,7 +49,7 @@ const pieDataEnemyAttacks = [
 
   return (
     <>
-      <div>
+      <div class="attackusage">
 	  <h1>{ clanname }</h1>
 	  <div class="chart">
           	<h2>Current War Attack Usage</h2>
@@ -73,7 +73,7 @@ const pieDataEnemyAttacks = [
 	  	</PieChart>
 	  </div>
 	  <div class="chart">
-          	<h2>Current Enemy War Attack Usage</h2>
+          	<h2>Enemy Current War Attack Usage</h2>
 	  	<PieChart width={400} height={300}>
 	  		<Pie
 	  			data={pieDataEnemyAttacks}
