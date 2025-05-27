@@ -42,6 +42,10 @@ const pieData = [
 	{ name: 'Total attacks', value: (clanData.teamsize * clanData.attackspermember) - clanData.attacks },
 	{ name: 'Attacks used', value: clanData.attacks }
 ];
+const pieDataEnemyAttacks = [
+	{ name: 'Total attacks', value: (clanData.teamsize * clanData.attackspermember) - clanData.enemyattacks },
+	{ name: 'Attacks used', value: clanData.enemyattacks }
+];
 
   return (
     <>
@@ -52,6 +56,27 @@ const pieData = [
 	  	<PieChart width={400} height={300}>
 	  		<Pie
 	  			data={pieData}
+	  			dataKey="value"
+	  			nameKey="name"
+	  			cx="50%"
+	  			cy="50%"
+	  			outerRadius={100}
+	  			fill="#8884d8"
+	  			label
+	  		>
+	  		{pieData.map((entry, index) => (
+				<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+			))}
+	  		</Pie>
+	  		<Tooltip />
+	  		<Legend />
+	  	</PieChart>
+	  </div>
+	  <div class="chart">
+          	<h2>Current Enemy War Attack Usage</h2>
+	  	<PieChart width={400} height={300}>
+	  		<Pie
+	  			data={pieDataEnemyAttacks}
 	  			dataKey="value"
 	  			nameKey="name"
 	  			cx="50%"
