@@ -58,6 +58,10 @@ const pieDataDestruction = [
 	{ name: 'Destruction Percentage', value: 100 - clanData.destructionpercentage },
 	{ name: '', value: clanData.destructionpercentage }
 ];
+const pieDataEnemyDestruction = [
+	{ name: 'Destruction Percentage', value: 100 - clanData.enemydestructionpercentage },
+	{ name: '', value: clanData.enemydestructionpercentage }
+];
 
   return (
     <>
@@ -156,6 +160,27 @@ const pieDataDestruction = [
 	  	<PieChart width={400} height={300}>
 	  		<Pie
 	  			data={pieDataDestruction}
+	  			dataKey="value"
+	  			nameKey="name"
+	  			cx="50%"
+	  			cy="50%"
+	  			outerRadius={100}
+	  			fill="#8884d8"
+	  			label
+	  		>
+	  		{pieData.map((entry, index) => (
+				<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+			))}
+	  		</Pie>
+	  		<Tooltip />
+	  		<Legend />
+	  	</PieChart>
+	  </div>
+	  <div class="chart">
+          	<h2>Destruction Percentage</h2>
+	  	<PieChart width={400} height={300}>
+	  		<Pie
+	  			data={pieDataEnemyDestruction}
 	  			dataKey="value"
 	  			nameKey="name"
 	  			cx="50%"
