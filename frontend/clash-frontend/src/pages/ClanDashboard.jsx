@@ -177,7 +177,7 @@ const pieDataEnemyDestruction = [
 	  	</PieChart>
 	  </div>
 	  <div class="chart">
-          	<h2>Destruction Percentage</h2>
+          	<h2>Enemy Destruction Percentage</h2>
 	  	<PieChart width={400} height={300}>
 	  		<Pie
 	  			data={pieDataEnemyDestruction}
