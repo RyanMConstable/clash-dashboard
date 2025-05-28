@@ -4,6 +4,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 import "./ClanDashboard.css"
 
 const COLORS = ['#8096a8', '#70d484'];
+const ENEMYCOLORS = ['#8096a8', '#c22f36'];
 
 function ClanDashboard() {
   const { clantag } = useParams();
@@ -102,7 +103,7 @@ const pieDataEnemyDestruction = [
 	  			label
 	  		>
 	  		{pieData.map((entry, index) => (
-				<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+				<Cell key={`cell-${index}`} fill={ENEMYCOLORS[index % ENEMYCOLORS.length]} />
 			))}
 	  		</Pie>
 	  		<Tooltip />
@@ -146,7 +147,7 @@ const pieDataEnemyDestruction = [
 	  			label
 	  		>
 	  		{pieData.map((entry, index) => (
-				<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+				<Cell key={`cell-${index}`} fill={ENEMYCOLORS[index % ENEMYCOLORS.length]} />
 			))}
 	  		</Pie>
 	  		<Tooltip />
@@ -190,7 +191,7 @@ const pieDataEnemyDestruction = [
 	  			label
 	  		>
 	  		{pieData.map((entry, index) => (
-				<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+				<Cell key={`cell-${index}`} fill={ENEMYCOLORS[index % ENEMYCOLORS.length]} />
 			))}
 	  		</Pie>
 	  		<Tooltip />
