@@ -24,3 +24,4 @@ The database is in a workable state, player and clan history are recorded every 
 - Add logging, most likely another container with everything flowing into it
 - Add TLS internal use
 - Add proper authorization
+- Add more graphs to dashboard
