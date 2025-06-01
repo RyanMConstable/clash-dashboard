@@ -66,7 +66,9 @@ const pieDataEnemyDestruction = [
 
   return (
     <>
-      <h1>{ clanname }</h1>
+      <div class="clanname">
+        <h1>{ clanname }</h1>
+      </div>
       <div class="attackusage">
 	  <div class="chart">
           	<h2>Current War Attack Usage</h2>
