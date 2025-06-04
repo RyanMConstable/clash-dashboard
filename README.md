@@ -25,3 +25,4 @@ The database is in a workable state, player and clan history are recorded every 
 - Add proper authorization
 - Add more graphs to dashboard
 - Add github repo for kubernetes manifests
+- Add elo for each user on each clan page for x amount of wars and clan war leagues
