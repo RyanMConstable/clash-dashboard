@@ -69,6 +69,7 @@ const pieDataEnemyDestruction = [
         <h1>{ clanname }</h1>
       </div>
       <div class="attackusage">
+	  <h1>Current War</h1>
 	  <h2>Attack usage</h2>
 	  <div class="chart">
 	  	<PieChart width={150} height={100}>
