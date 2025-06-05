@@ -21,3 +21,7 @@ CREATE TABLE IF NOT EXISTS clanhistory (
 CREATE TABLE IF NOT EXISTS clanlist (
   clantag VARCHAR(15) PRIMARY KEY, clanname VARCHAR(100)
 );
+
+CREATE TABLE IF NOT EXISTS playerlist (
+  playertag VARCHAR(15) PRIMARY KEY, clantag VARCHAR(100), playername VARCHAR(50)
+);
