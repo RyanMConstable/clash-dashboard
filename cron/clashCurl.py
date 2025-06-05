@@ -126,6 +126,7 @@ def updateHistoryTables():
             conn.commit()
 
 def warUpdates():
+    now = datetime.now()
     clans = []
     warExists = False
 
@@ -179,6 +180,8 @@ def warUpdates():
             insertDict["enemystars"] = json["opponent"]["stars"]
             insertDict["enemydestructionpercentage"] = json["opponent"]["destructionPercentage"]
             insertDict["enemytag"] = json["opponent"]["tag"]
+            insertDict["clantag"] = json["clan"]["tag"]
+            insertDict["time"] = now
 
             
             if warExists:
@@ -207,6 +210,8 @@ def warUpdates():
                                 insertDict["destructionpercentage"] = attack["destructionPercentage"]
                                 insertDict["odernum"] = attack["order"]
                                 insertDict["duration"] = attack["duration"]
+                                insertDict["clantag"] = json["clan"]["tag"]
+                                insertDict["time"] = now
 
                                 conn.execute(insert(playerwarattacks), insertDict)
                                 conn.commit()
