@@ -37,7 +37,6 @@ function ClanDashboard() {
 
 if (loading) return <p>Loading clan data...</p>;
 if (error) return <p>Error: {error}</p>;
-if (!clanData) return <p>No clan data found.</p>;
 
 const pieData = [
 	{ name: 'Total attacks', value: (clanData.teamsize * clanData.attackspermember) - clanData.attacks },
