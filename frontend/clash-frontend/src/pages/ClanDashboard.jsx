@@ -69,16 +69,16 @@ const pieDataEnemyDestruction = [
         <h1>{ clanname }</h1>
       </div>
       <div class="attackusage">
+	  <h2>Attack usage</h2>
 	  <div class="chart">
-          	<h2>Current War Attack Usage</h2>
-	  	<PieChart width={400} height={300}>
+	  	<PieChart width={150} height={100}>
 	  		<Pie
 	  			data={pieData}
 	  			dataKey="value"
 	  			nameKey="name"
 	  			cx="50%"
 	  			cy="50%"
-	  			outerRadius={100}
+	  			outerRadius={15}
 	  			fill="#8884d8"
 	  			label
 	  		>
@@ -87,19 +87,15 @@ const pieDataEnemyDestruction = [
 			))}
 	  		</Pie>
 	  		<Tooltip />
-	  		<Legend />
 	  	</PieChart>
-	  </div>
-	  <div class="chart">
-          	<h2>Enemy Current War Attack Usage</h2>
-	  	<PieChart width={400} height={300}>
+	  	<PieChart width={150} height={100}>
 	  		<Pie
 	  			data={pieDataEnemyAttacks}
 	  			dataKey="value"
 	  			nameKey="name"
 	  			cx="50%"
 	  			cy="50%"
-	  			outerRadius={100}
+	  			outerRadius={15}
 	  			fill="#8884d8"
 	  			label
 	  		>
@@ -108,21 +104,18 @@ const pieDataEnemyDestruction = [
 			))}
 	  		</Pie>
 	  		<Tooltip />
-	  		<Legend />
 	  	</PieChart>
 	  </div>
-      </div>
-      <div class="attackusage">
+          <h2>Current Stars</h2>
 	  <div class="chart">
-          	<h2>Current Stars</h2>
-	  	<PieChart width={400} height={300}>
+	  	<PieChart width={150} height={100}>
 	  		<Pie
 	  			data={pieDataStars}
 	  			dataKey="value"
 	  			nameKey="name"
 	  			cx="50%"
 	  			cy="50%"
-	  			outerRadius={100}
+	  			outerRadius={15}
 	  			fill="#8884d8"
 	  			label
 	  		>
@@ -131,19 +124,15 @@ const pieDataEnemyDestruction = [
 			))}
 	  		</Pie>
 	  		<Tooltip />
-	  		<Legend />
 	  	</PieChart>
-	  </div>
-	  <div class="chart">
-          	<h2>Enemy Current Stars</h2>
-	  	<PieChart width={400} height={300}>
+	  	<PieChart width={150} height={100}>
 	  		<Pie
 	  			data={pieDataEnemyStars}
 	  			dataKey="value"
 	  			nameKey="name"
 	  			cx="50%"
 	  			cy="50%"
-	  			outerRadius={100}
+	  			outerRadius={15}
 	  			fill="#8884d8"
 	  			label
 	  		>
@@ -152,21 +141,18 @@ const pieDataEnemyDestruction = [
 			))}
 	  		</Pie>
 	  		<Tooltip />
-	  		<Legend />
 	  	</PieChart>
 	  </div>
-      </div>
-      <div class="destruction">
+          <h2>Destruction Percentage</h2>
 	  <div class="chart">
-          	<h2>Destruction Percentage</h2>
-	  	<PieChart width={400} height={300}>
+	  	<PieChart width={150} height={100}>
 	  		<Pie
 	  			data={pieDataDestruction}
 	  			dataKey="value"
 	  			nameKey="name"
 	  			cx="50%"
 	  			cy="50%"
-	  			outerRadius={100}
+	  			outerRadius={15}
 	  			fill="#8884d8"
 	  			label
 	  		>
@@ -175,19 +161,15 @@ const pieDataEnemyDestruction = [
 			))}
 	  		</Pie>
 	  		<Tooltip />
-	  		<Legend />
 	  	</PieChart>
-	  </div>
-	  <div class="chart">
-          	<h2>Enemy Destruction Percentage</h2>
-	  	<PieChart width={400} height={300}>
+	  	<PieChart width={150} height={100}>
 	  		<Pie
 	  			data={pieDataEnemyDestruction}
 	  			dataKey="value"
 	  			nameKey="name"
 	  			cx="50%"
 	  			cy="50%"
-	  			outerRadius={100}
+	  			outerRadius={15}
 	  			fill="#8884d8"
 	  			label
 	  		>
@@ -196,7 +178,6 @@ const pieDataEnemyDestruction = [
 			))}
 	  		</Pie>
 	  		<Tooltip />
-	  		<Legend />
 	  	</PieChart>
 	  </div>
       </div>
