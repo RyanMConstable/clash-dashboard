@@ -19,10 +19,9 @@ The database is in a workable state, player and clan history are recorded every 
 - Gain more experience with Docker, Kubernetes, GitHub Actions, Git, Python, FastAPI, and React.
 
 # TO DO
-- Add argocd to kubernetes cluster
 - Add logging, most likely another container with everything flowing into it
 - Add TLS internal use
 - Add proper authorization
-- Add more graphs to dashboard
 - Add github repo for kubernetes manifests
 - Add elo for each user on each clan page for x amount of wars and clan war leagues
+- Add databases for cwl
