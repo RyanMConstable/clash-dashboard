@@ -11,7 +11,5 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker images
       run: |
-        cd /home/bob/clash-dashboard/frontend/clash-frontend
-        sudo npm run build
         cd /home/bob/clash-dashboard
         bash start.sh
