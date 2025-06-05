@@ -1,5 +1,6 @@
 services:
   db:
+    build: ./db
     image: clash-db
     container_name: clash-db
     volumes: 
