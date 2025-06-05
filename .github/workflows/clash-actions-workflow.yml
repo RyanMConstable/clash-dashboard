@@ -12,4 +12,4 @@ jobs:
     - name: Build the Docker images
       run: |
         cd /home/bob/clash-dashboard/
-        bash start
+        bash start.sh
