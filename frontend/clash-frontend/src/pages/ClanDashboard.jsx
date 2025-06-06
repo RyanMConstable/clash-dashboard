@@ -68,6 +68,7 @@ const pieDataEnemyDestruction = [
       <div class="clanname">
         <h1>{ clanname }</h1>
       </div>
+
       <div class="attackusage">
 	  <h1>Current War</h1>
 	  <h2>Attack usage</h2>
@@ -181,6 +182,10 @@ const pieDataEnemyDestruction = [
 	  		<Tooltip />
 	  	</PieChart>
 	  </div>
+      </div>
+
+      <div>
+	  <h1>Testing</h1>
       </div>
     </>
   )
