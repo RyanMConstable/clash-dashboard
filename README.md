@@ -22,6 +22,5 @@ The database is in a workable state, player and clan history are recorded every 
 - Add logging, most likely another container with everything flowing into it
 - Add TLS internal use
 - Add proper authorization
-- Add github repo for kubernetes manifests
 - Add elo for each user on each clan page for x amount of wars and clan war leagues
 - Add databases for cwl
