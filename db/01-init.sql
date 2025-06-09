@@ -23,5 +23,5 @@ CREATE TABLE IF NOT EXISTS clanlist (
 );
 
 CREATE TABLE IF NOT EXISTS playerlist (
-  playertag VARCHAR(15) PRIMARY KEY, clantag VARCHAR(100), playername VARCHAR(50)
+  playertag VARCHAR(15) PRIMARY KEY, clantag VARCHAR(100), playername VARCHAR(50), baserating INTEGER
 );
