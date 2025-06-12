@@ -15,6 +15,7 @@ def playerElo(currentClanWarJSON, playerTag):
             for enemy in currentClanWarJSON["opponent"]["members"]:
                 if enemy["tag"] == attack["defenderTag"]:
                     enemyInfo = enemy
+                    break
 
-    #HERE WE NEED TO CALCULATE ELO
+            #HERE WE NEED TO CALCULATE ELO
     return
