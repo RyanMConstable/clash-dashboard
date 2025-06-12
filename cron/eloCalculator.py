@@ -1,7 +1,7 @@
 
 def playerElo(currentClanWarJSON, playerTag):
-    player = None
-    enemy = None
+    playerInfo = None
+    enemyInfo = None
 
     #Work in progress
     for player in currentClanWarJSON["clan"]["members"]:
@@ -18,4 +18,6 @@ def playerElo(currentClanWarJSON, playerTag):
                     break
 
             #HERE WE NEED TO CALCULATE ELO
+            print(f"Player: {playerInfo}")
+            print(f"Enemy: {enemyInfo}")
     return

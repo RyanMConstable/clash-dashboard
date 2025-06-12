@@ -5,5 +5,6 @@ RUN pip install requests sqlalchemy psycopg2 apscheduler
 WORKDIR /cron
 
 COPY clashCurl.py /cron
+COPY eloCalculator.py /cron
 
 CMD ["python", "clashCurl.py"]

@@ -4,6 +4,7 @@ from sqlalchemy import Table, Column, MetaData, Integer, Computed, event, create
 from apscheduler.schedulers.blocking import BlockingScheduler
 from datetime import datetime, timezone
 import os
+from eloCalculator import *
 
 TOK = os.getenv("TOK")
 
@@ -183,6 +184,7 @@ def warUpdates():
             insertDict["clantag"] = json["clan"]["tag"]
             insertDict["time"] = now
 
+
             
             if warExists:
                 conn.execute(update(clanwars).where(clanwars.c.id == insertDict["id"]).values(insertDict))
@@ -190,6 +192,7 @@ def warUpdates():
                 # Find out if there is a new update and then text if changed
                 for player in json["clan"]["members"]:
                     print(player["name"])
+                    print(playerElo(json, player["tag"]))
                     if "attacks" not in player:
                         print(f'{player["name"]} did not attack')
                     else:
