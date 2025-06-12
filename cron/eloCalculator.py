@@ -20,4 +20,15 @@ def playerElo(currentClanWarJSON, playerTag):
             #HERE WE NEED TO CALCULATE ELO
             print(f"Player: {playerInfo}")
             print(f"Enemy: {enemyInfo}")
+
+            preferredAttackLow = playerInfo["mapPosition"] - 1
+            preferredAttackHigh = playerInfo["mapPosition"]
+            stars = attack["stars"]
+            destruction = attack["destructionPercentage"]
+            finishTime = attack["duration"]
+            enemyPosition = enemyInfo["mapPosition"]
+            enemyTH = enemyInfo["townhallLevel"]
+            TH = playerInfo["townhallLevel"]
+
+            print(preferredAttackLow, preferredAttackHigh, stars, destruction, finishTime, enemyPosition, enemyTH, TH)
     return
