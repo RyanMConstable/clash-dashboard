@@ -192,11 +192,11 @@ def warUpdates():
                 # Find out if there is a new update and then text if changed
                 for player in json["clan"]["members"]:
                     print(player["name"])
-                    print(playerElo(json, player["tag"]))
                     if "attacks" not in player:
                         print(f'{player["name"]} did not attack')
                     else:
                         for attack in player["attacks"]:
+                            print(playerElo(json, player["tag"], attack))
                             #For each attack for every player create the key
                             playerpk = f'{json["startTime"]}{player["tag"]}{attack["defenderTag"]}'
                             #Here check for existence in the database before adding vs inserting

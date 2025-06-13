@@ -1,5 +1,7 @@
 
-def playerElo(currentClanWarJSON, playerTag):
+def playerElo(currentClanWarJSON, playerTag, attack):
+    returnInfo = {}
+
     playerInfo = None
     enemyInfo = None
 
@@ -31,4 +33,6 @@ def playerElo(currentClanWarJSON, playerTag):
             TH = playerInfo["townhallLevel"]
 
             print(preferredAttackLow, preferredAttackHigh, stars, destruction, finishTime, enemyPosition, enemyTH, TH)
+
+            
     return
