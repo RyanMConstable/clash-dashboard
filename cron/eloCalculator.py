@@ -39,84 +39,89 @@ def playerElo(currentClanWarJSON, playerTag, attack):
         #For attacking low targets
         if TH == enemyTH:
             if stars == 3:
-
+                eloChange = 0
             elif stars == 2:
-
+                eloChange = -3
             elif stars == 1:
-
+                eloChange = -4 
             else:
+                eloChange = -5
         elif TH > enemyTH:
             if stars == 3:
-
+                eloChange = 0
             elif stars == 2:
-
+                eloChange = -4
             elif stars == 1:
-
+                eloChange = -5
             else:
+                eloChange = -6
         else:
             if stars == 3:
-
+                eloChange = 0
             elif stars == 2:
-
+                eloChange = -1
             elif stars == 1:
-
+                eloChange = -2
             else:
+                eloChange = -3
     elif enemyPosition == preferredAttackLow or enemyPosition == preferredAttackHigh:
         #For attacking preferred targets
         if TH == enemyTH:
             if stars == 3:
-
+                eloChange += 2
             elif stars == 2:
-
+                eloChange = 0
             elif stars == 1:
-
+                eloChange -= 1
             else:
-        
+                eloChange -= 2
         elif TH > enemyTH:
             if stars == 3:
-
+                eloChange += 1
             elif stars == 2:
-
+                eloChange = 0
             elif stars == 1:
-
+                eloChange -= 2
             else:
-
+                eloChange -= 3
         else:
             if stars == 3:
-
+                eloChange += 3
             elif stars == 2:
-
+                eloChange += 1
             elif stars == 1:
-
+                eloChange = 0
             else:
+                eloChange -= 1
     else:
         #For attacking higher targets
         if TH == enemyTH:
             if stars == 3:
-
+                eloChange += 3 
             elif stars == 2:
-
+                eloChange -= 2
             elif stars == 1:
-
+                eloChange -= 3
             else:
-        
+                eloChange -= 4
         elif TH > enemyTH:
             if stars == 3:
-
+                eloChange += 1
             elif stars == 2:
-
+                eloChange -= 1
             elif stars == 1:
-
+                eloChange -= 2
             else:
-
+                eloChange -= 3
         else:
             if stars == 3:
-
+                eloChange += 5
             elif stars == 2:
-
+                eloChange -= 1
             elif stars == 1:
-
+                eloChange -= 2
             else:
+                eloChange -= 3
 
     returnInfo["enemyPosition"] = enemyPosition
     returnInfo["enemyTH"] = enemyTH
