@@ -196,7 +196,7 @@ def warUpdates():
                         print(f'{player["name"]} did not attack')
                     else:
                         for attack in player["attacks"]:
-                            print(playerElo(json, player["tag"], attack))
+                            eloInfo = playerElo(json, player["tag"], attack)
                             #For each attack for every player create the key
                             playerpk = f'{json["startTime"]}{player["tag"]}{attack["defenderTag"]}'
                             #Here check for existence in the database before adding vs inserting
@@ -215,6 +215,9 @@ def warUpdates():
                                 insertDict["duration"] = attack["duration"]
                                 insertDict["clantag"] = json["clan"]["tag"]
                                 insertDict["time"] = now
+                                insertDict["enemytownhalllevel"] = eloInfo["enemyTH"]
+                                insertDict["enemymapposition"] = eloInfo["enemyPosition"]
+                                insertDict["eloChange"] = eloInfo["eloChange"]
 
                                 conn.execute(insert(playerwarattacks), insertDict)
                                 conn.commit()
