@@ -30,8 +30,6 @@ def playerElo(currentClanWarJSON, playerTag, attack):
     enemyTH = enemyInfo["townhallLevel"]
     TH = playerInfo["townhallLevel"]
 
-    print(preferredAttackLow, preferredAttackHigh, stars, destruction, finishTime, enemyPosition, enemyTH, TH)
-
     #Here is the elo calculation
     eloChange = 0
 
@@ -126,6 +124,7 @@ def playerElo(currentClanWarJSON, playerTag, attack):
     returnInfo["enemyPosition"] = enemyPosition
     returnInfo["enemyTH"] = enemyTH
     returnInfo["preferredAttackLow"] = preferredAttackLow
-    reutnrInfo["preferredAttackHigh"] = preferredAttackHigh
+    returnInfo["preferredAttackHigh"] = preferredAttackHigh
+    returnInfo["eloChange"] = eloChange
             
     return returnInfo
