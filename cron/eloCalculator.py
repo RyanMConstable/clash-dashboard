@@ -32,5 +32,9 @@ def playerElo(currentClanWarJSON, playerTag, attack):
 
     print(preferredAttackLow, preferredAttackHigh, stars, destruction, finishTime, enemyPosition, enemyTH, TH)
 
+    returnInfo["enemyPosition"] = enemyPosition
+    returnInfo["enemyTH"] = enemyTH
+    returnInfo["preferredAttackLow"] = preferredAttackLow
+    reutnrInfo["preferredAttackHigh"] = preferredAttackHigh
             
-    return
+    return returnInfo
