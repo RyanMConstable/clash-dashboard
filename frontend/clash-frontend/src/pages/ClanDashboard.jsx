@@ -25,9 +25,12 @@ function ClanDashboard() {
 			  const data = await response.json();
 			  setClanData(data.clanvalues);
 			  setClanname(data.clanname);
+			  console.log("Set data")
 		  } catch (err) {
+			  console.log("Setting error")
 			  setError(err.message);
 		  } finally {
+			  console.log("Loading set to false")
 			  setLoading(false);
 		  }
 	  };
