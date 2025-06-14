@@ -26,6 +26,7 @@ function ClanDashboard() {
 			  setClanData(data.clanvalues);
 			  setClanname(data.clanname);
 			  console.log("Set data")
+			  console.log(data)
 		  } catch (err) {
 			  console.log("Setting error")
 			  setError(err.message);
