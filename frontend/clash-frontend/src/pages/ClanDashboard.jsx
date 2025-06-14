@@ -73,6 +73,7 @@ if (!error) {
 	];
 }
 
+if (!error) {
   return (
     <>
       <div class="clanname">
@@ -198,7 +199,11 @@ if (!error) {
 	  <h1>Testing</h1>
       </div>
     </>
-  )
+  ) 
+}
+    return (
+	    <p>Test</p>
+    )
 }
 
 export default ClanDashboard 
