@@ -201,6 +201,19 @@ if (!error) {
     </>
   ) 
 }
+
+if (error) {
+  return (
+    <>
+      <div class="clanname">
+        <h1>{ clanname }</h1>
+      </div>
+
+      <div class="attackusage">
+	  <h1>No clan war data exists</h1>
+      </div>
+    </>
+  ) 
     return (
 	    <p>Test</p>
     )
