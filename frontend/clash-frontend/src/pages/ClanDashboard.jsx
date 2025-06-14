@@ -42,6 +42,7 @@ function ClanDashboard() {
 	  fetchClanData();
   }, [clantag]);
 
+console.log("Error")
 console.log(error)
 if (loading) return <p>Loading clan data...</p>;
 if (error) return <p>ERROR</p>;
