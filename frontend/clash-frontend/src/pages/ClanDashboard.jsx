@@ -25,7 +25,7 @@ function ClanDashboard() {
 			  const data = await response.json();
 			  setClanData(data.clanvalues);
 			  setClanname(data.clanname);
-			  if (data.clanvalues = null) {
+			  if (data.clanvalues === null) {
 				  setError("Clan Values Empty")
 			  }
 			  console.log("Set data")
