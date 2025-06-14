@@ -45,32 +45,33 @@ function ClanDashboard() {
 console.log("Error")
 console.log(error)
 if (loading) return <p>Loading clan data...</p>;
-if (error) return <p>ERROR</p>;
+if (!error) {
 
-const pieData = [
-	{ name: 'Total attacks', value: (clanData.teamsize * clanData.attackspermember) - clanData.attacks },
-	{ name: 'Attacks used', value: clanData.attacks }
-];
-const pieDataEnemyAttacks = [
-	{ name: 'Total attacks', value: (clanData.teamsize * clanData.attackspermember) - clanData.enemyattacks },
-	{ name: 'Attacks used', value: clanData.enemyattacks }
-];
-const pieDataStars = [
-	{ name: 'Available Stars', value: (clanData.teamsize * 3) - clanData.stars },
-	{ name: 'Stars Gained', value: clanData.stars }
-];
-const pieDataEnemyStars = [
-	{ name: 'Available Stars', value: (clanData.teamsize * 3) - clanData.enemystars },
-	{ name: 'Stars Gained', value: clanData.enemystars }
-];
-const pieDataDestruction = [
-	{ name: 'Destruction Percentage', value: 100 - clanData.destructionpercentage },
-	{ name: '', value: clanData.destructionpercentage }
-];
-const pieDataEnemyDestruction = [
-	{ name: 'Destruction Percentage', value: 100 - clanData.enemydestructionpercentage },
-	{ name: '', value: clanData.enemydestructionpercentage }
-];
+	const pieData = [
+		{ name: 'Total attacks', value: (clanData.teamsize * clanData.attackspermember) - clanData.attacks },
+		{ name: 'Attacks used', value: clanData.attacks }
+	];
+	const pieDataEnemyAttacks = [
+		{ name: 'Total attacks', value: (clanData.teamsize * clanData.attackspermember) - clanData.enemyattacks },
+		{ name: 'Attacks used', value: clanData.enemyattacks }
+	];
+	const pieDataStars = [
+		{ name: 'Available Stars', value: (clanData.teamsize * 3) - clanData.stars },
+		{ name: 'Stars Gained', value: clanData.stars }
+	];
+	const pieDataEnemyStars = [
+		{ name: 'Available Stars', value: (clanData.teamsize * 3) - clanData.enemystars },
+		{ name: 'Stars Gained', value: clanData.enemystars }
+	];
+	const pieDataDestruction = [
+		{ name: 'Destruction Percentage', value: 100 - clanData.destructionpercentage },
+		{ name: '', value: clanData.destructionpercentage }
+	];
+	const pieDataEnemyDestruction = [
+		{ name: 'Destruction Percentage', value: 100 - clanData.enemydestructionpercentage },
+		{ name: '', value: clanData.enemydestructionpercentage }
+	];
+}
 
   return (
     <>
