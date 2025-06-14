@@ -214,9 +214,7 @@ if (error) {
       </div>
     </>
   ) 
-    return (
-	    <p>Test</p>
-    )
+}
 }
 
 export default ClanDashboard 
