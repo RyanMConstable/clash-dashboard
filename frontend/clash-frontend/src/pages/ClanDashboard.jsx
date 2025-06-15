@@ -45,6 +45,8 @@ function ClanDashboard() {
 console.log("Error")
 console.log(error)
 if (loading) return <p>Loading clan data...</p>;
+
+const pieData = [];
 if (!error) {
 
 	const pieData = [
