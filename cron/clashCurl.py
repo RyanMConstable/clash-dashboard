@@ -166,7 +166,8 @@ def warUpdates():
 
             for member in memberjson["items"]:
                 memberData = {"playertag":member["tag"], "clantag":clan, "playername":member["name"]}
-                stmt = insert(playerlist).values(memberData).on_conflict_do_update(
+                stmt = insert(playerlist).values(memberData)
+                stmt = stmt.on_conflict_do_update(
                         index_elements=["playertag"],
                         set_={key: stmt.excluded[key] for key in memberData if key != "playertag"}
                         )
