@@ -196,6 +196,7 @@ def warUpdates():
                         print(f'{player["name"]} did not attack')
                     else:
                         for attack in player["attacks"]:
+                            print(f"ATTACK: {attack}")
                             eloInfo = playerElo(json, player["tag"], attack)
                             #For each attack for every player create the key
                             playerpk = f'{json["startTime"]}{player["tag"]}{attack["defenderTag"]}'
