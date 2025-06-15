@@ -94,7 +94,7 @@ async def create_item(login: Login):
 
 @app.get("/api/clandashboard")
 async def get_clan_dashboard(
-        clantag: str = Query(..., description="Clan tag to fetch data")
+        clantag: str = Query(..., description="Clan tag to fetch data"),
         numattacks: Optional[int] = Query(None, description="Create total elo from specified number of attacks")
         ):
 
