@@ -149,13 +149,28 @@ def warUpdates():
 
             encodedClan = quote(clan)
             url = f"https://api.clashofclans.com/v1/clans/{encodedClan}/currentwar"
+            memberurl = f"https://api.clashofclans.com/v1/clans/{encodedClan}/members"
+
             result = requests.get(url, headers=HEADERS)
+            memberresult = requests.get(memberurl, headers=HEADERS)
+
             if result.status_code != 200:
                 print(f"[ERROR]: Status code: {result.status_code}")
         
             print(result)
             json = result.json()
+            memberjson = result.json()
             print(json)
+
+            for member in memberjson["items"]:
+                memberData = {"playertag":member["tag"], "clantag":clan, "playername":member["name"]}
+                stmt = insert(playerlist).values(memberData).on_conflict_do_update(
+                        index_elements=["playertag"],
+                        set_={key: stmt.excluded[key] for key in memberData if key != "playertag"}
+                        )
+                conn.execute(stmt)
+            conn.commit()
+
 
             if json["state"] != "inWar":
                 print("Clan not in war")
