@@ -46,12 +46,12 @@ console.log("Error")
 console.log(error)
 if (loading) return <p>Loading clan data...</p>;
 
-const pieData = [];
-const pieDataEnemyAttacks = [];
-const pieDataStars = [];
-const pieDataEnemyStars = [];
-const pieDataDestruction = [];
-const pieDataEnemyDestruction = [];
+let pieData = [];
+let pieDataEnemyAttacks = [];
+let pieDataStars = [];
+let pieDataEnemyStars = [];
+let pieDataDestruction = [];
+let pieDataEnemyDestruction = [];
 
 if (!error) {
 	console.log("Setting pie data")
