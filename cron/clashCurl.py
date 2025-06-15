@@ -217,7 +217,7 @@ def warUpdates():
                                 insertDict["time"] = now
                                 insertDict["enemytownhalllevel"] = eloInfo["enemyTH"]
                                 insertDict["enemymapposition"] = eloInfo["enemyPosition"]
-                                insertDict["eloChange"] = eloInfo["eloChange"]
+                                insertDict["elochange"] = eloInfo["eloChange"]
 
                                 conn.execute(insert(playerwarattacks), insertDict)
                                 conn.commit()
