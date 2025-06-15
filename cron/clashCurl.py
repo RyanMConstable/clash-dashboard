@@ -213,7 +213,7 @@ def warUpdates():
                                 insertDict["defendertag"] = attack["defenderTag"]
                                 insertDict["stars"] = attack["stars"]
                                 insertDict["destructionpercentage"] = attack["destructionPercentage"]
-                                insertDict["odernum"] = attack["order"]
+                                insertDict["ordernum"] = attack["order"]
                                 insertDict["duration"] = attack["duration"]
                                 insertDict["clantag"] = json["clan"]["tag"]
                                 insertDict["time"] = now
