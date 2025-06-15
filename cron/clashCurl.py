@@ -1,6 +1,7 @@
 import requests
 from urllib.parse import quote
-from sqlalchemy import Table, Column, MetaData, Integer, Computed, event, create_engine, select, insert, update
+from sqlalchemy import Table, Column, MetaData, Integer, Computed, event, create_engine, select, update
+from sqlalchemy.dialects.postgresql import insert
 from apscheduler.schedulers.blocking import BlockingScheduler
 from datetime import datetime, timezone
 import os
