@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException, Query
+from typing import Optional
 from pydantic import BaseModel
 import requests
 from sqlalchemy import Table, select, insert, MetaData, Integer, create_engine, and_, func

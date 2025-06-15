@@ -159,7 +159,7 @@ def warUpdates():
         
             print(result)
             json = result.json()
-            memberjson = result.json()
+            memberjson = memberresult.json()
             print(json)
             print(f"MEMBERJSON: {memberjson}")
 
