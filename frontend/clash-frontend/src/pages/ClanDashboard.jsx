@@ -56,27 +56,27 @@ const pieDataEnemyDestruction = [];
 if (!error) {
 	console.log("Setting pie data")
 
-	const pieData = [
+	pieData = [
 		{ name: 'Total attacks', value: (clanData.teamsize * clanData.attackspermember) - clanData.attacks },
 		{ name: 'Attacks used', value: clanData.attacks }
 	];
-	const pieDataEnemyAttacks = [
+	pieDataEnemyAttacks = [
 		{ name: 'Total attacks', value: (clanData.teamsize * clanData.attackspermember) - clanData.enemyattacks },
 		{ name: 'Attacks used', value: clanData.enemyattacks }
 	];
-	const pieDataStars = [
+	pieDataStars = [
 		{ name: 'Available Stars', value: (clanData.teamsize * 3) - clanData.stars },
 		{ name: 'Stars Gained', value: clanData.stars }
 	];
-	const pieDataEnemyStars = [
+	pieDataEnemyStars = [
 		{ name: 'Available Stars', value: (clanData.teamsize * 3) - clanData.enemystars },
 		{ name: 'Stars Gained', value: clanData.enemystars }
 	];
-	const pieDataDestruction = [
+	pieDataDestruction = [
 		{ name: 'Destruction Percentage', value: 100 - clanData.destructionpercentage },
 		{ name: '', value: clanData.destructionpercentage }
 	];
-	const pieDataEnemyDestruction = [
+	pieDataEnemyDestruction = [
 		{ name: 'Destruction Percentage', value: 100 - clanData.enemydestructionpercentage },
 		{ name: '', value: clanData.enemydestructionpercentage }
 	];
