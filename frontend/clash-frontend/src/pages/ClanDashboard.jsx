@@ -54,6 +54,7 @@ const pieDataDestruction = [];
 const pieDataEnemyDestruction = [];
 
 if (!error) {
+	console.log("Setting pie data")
 
 	const pieData = [
 		{ name: 'Total attacks', value: (clanData.teamsize * clanData.attackspermember) - clanData.attacks },
