@@ -233,6 +233,9 @@ def warUpdates():
 
             else:
                 conn.execute(insert(clanwars), insertDict)
+
+            #HERE WE NEED TO UPDATE THE PLAYERLIST TABLE
+
             conn.commit()
 
 updateHistoryTables()
