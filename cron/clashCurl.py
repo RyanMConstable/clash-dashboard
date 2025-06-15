@@ -161,6 +161,7 @@ def warUpdates():
             json = result.json()
             memberjson = result.json()
             print(json)
+            print(f"MEMBERJSON: {memberjson}")
 
             for member in memberjson:
                 memberData = {"playertag":member["tag"], "clantag":clan, "playername":member["name"]}
