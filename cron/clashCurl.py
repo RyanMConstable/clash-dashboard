@@ -134,6 +134,7 @@ def warUpdates():
     clanlist = Table("clanlist", metadata, autoload_with=engine)
     clanwars = Table("clanwars", metadata, autoload_with=engine)
     playerwarattacks = Table("playerwarattacks", metadata, autoload_with=engine)
+    playerlist = Table("playerlist", metadata, autoload_with=engine)
 
     with engine.connect() as conn:
         result = conn.execute(select(clanlist))
@@ -142,6 +143,10 @@ def warUpdates():
 
 
         for clan in clans:
+            #Make a list of dictionaries where each dictionary is a player
+            clanmembers = []
+
+
             encodedClan = quote(clan)
             url = f"https://api.clashofclans.com/v1/clans/{encodedClan}/currentwar"
             result = requests.get(url, headers=HEADERS)
