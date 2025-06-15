@@ -235,6 +235,9 @@ def warUpdates():
                 conn.execute(insert(clanwars), insertDict)
             conn.commit()
 
+updateHistoryTables()
+warUpdates()
+
 scheduler = BlockingScheduler()
 scheduler.add_job(updateHistoryTables, 'interval', seconds=900)
 scheduler.add_job(warUpdates, 'interval', seconds=60)
