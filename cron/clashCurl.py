@@ -163,7 +163,7 @@ def warUpdates():
             print(json)
             print(f"MEMBERJSON: {memberjson}")
 
-            for member in memberjson:
+            for member in memberjson["items"]:
                 memberData = {"playertag":member["tag"], "clantag":clan, "playername":member["name"]}
                 stmt = insert(playerlist).values(memberData).on_conflict_do_update(
                         index_elements=["playertag"],
