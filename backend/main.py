@@ -93,13 +93,18 @@ async def create_item(login: Login):
     return {"status": "ok", "clantag": result[-1][1:]}
 
 @app.get("/api/clandashboard")
-async def get_clan_dashboard(clantag: str = Query(..., description="Clan tag to fetch data")):
+async def get_clan_dashboard(
+        clantag: str = Query(..., description="Clan tag to fetch data")
+        numattacks: Optional[int] = Query(None, description="Create total elo from specified number of attacks"
+        ):
+
     fulltag = '#' + clantag
     
     clanwars = Table("clanwars", metadata, autoload_with=engine)
     clanlist = Table("clanlist", metadata, autoload_with=engine)
     
     with engine.connect() as conn:
+        #CURRENT WAR INFO
         stmt = select(clanwars).where(
                 func.split_part(clanwars.c.id, '#', 2) == clantag
                 ).order_by(clanwars.c.id.desc())
@@ -108,6 +113,8 @@ async def get_clan_dashboard(clantag: str = Query(..., description="Clan tag to 
         clanname = conn.execute(select(clanlist).where(
                 clanlist.c.clantag == fulltag
                 )).fetchone()
+
+        #PLAYER ELO INFO
 
 
     return {"status": "ok", "clanvalues": result, "clanname": clanname[1]}
