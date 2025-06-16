@@ -44,21 +44,7 @@ function ClanDashboard() {
 	  fetchClanData();
   }, [clantag]);
 
-
-const maxCols = Math.max(...clanmemberelo.map(member => member.length));
-const tableHeaders = [...Array(maxCols)].map((_, i) =>
-	<th key={i}>{i === 0 ? "Name" : `Match ${i}`}</th>
-);
-
-const tableRows = clanmemberelo.map((member, rowIdx) => (
-	<tr key={rowIdx}>
-	{[...Array(maxCols)].map((_, colIdx) => (
-		<td key={colIdx}>
-		{member[colIdx] !== undefined ? member[colIdx] : ""}
-		</td>
-	))}
-	</tr>
-));
+const tableHeaders = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 console.log("Error")
 console.log(error)
@@ -222,15 +208,25 @@ if (!error) {
 	  </div>
       </div>
 
-      <div className="elo-table-wrapper">
-	<h2>Clan Member ELO History</h2>
-	<table className="elo-table">
+      <div>
+        <table className="elo-table">
 	  <thead>
-	  	<tr>{tableHeaders}</tr>
+	    <tr>
+	      {tableHeaders.map((header, i) => (
+		      <th key={i}>{header}</th>
+	      ))}
+	  </tr>
 	  </thead>
-	  <tbody>{tableRows}</tbody>
-	</table>
-
+	  <tbody>
+	  {clanmemberelo.map((row, rowIdx) => (
+		  <tr key={rowIdx}>
+		  	{tableHeaders.map((_, colIdx) => (
+				<td key={colIdx}>{row[colIdx] ?? ""}</td>
+			))}
+		  </tr>
+	  ))}
+	  </tbody>
+	  </table>
       </div>
 
     </>
