@@ -103,6 +103,7 @@ async def get_clan_dashboard(
     
     clanwars = Table("clanwars", metadata, autoload_with=engine)
     clanlist = Table("clanlist", metadata, autoload_with=engine)
+    playerlist = Table("playerlist", metadata, autoload_with=engine)
     
     with engine.connect() as conn:
         #CURRENT WAR INFO
@@ -116,6 +117,10 @@ async def get_clan_dashboard(
                 )).fetchone()
 
         #PLAYER ELO INFO
+        stmt = select(playerlist).where(
+                playerlist.c.clantag == fulltag
+                ))
+        clanmembers = conn.execute(stmt)
 
 
-    return {"status": "ok", "clanvalues": result, "clanname": clanname[1]}
+    return {"status": "ok", "clanvalues": result, "clanname": clanname[1], "clanmemberattacks": clanmembers}
