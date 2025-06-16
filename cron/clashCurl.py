@@ -223,6 +223,10 @@ def warUpdates():
                             conn.execute(insert(playerwarattacks), {"id": playerpk1, "eloChange":-10, "stars": -1})
                             conn.execute(insert(playerwarattacks), {"id": playerpk2, "eloChange":-10, "stars": -1})
                     else:
+                        if len(player["attacks"]) == 1 and json["state"] == "warEnded":
+                            playerpk1 = f'{json["startTime"]}{player["tag"]}---0'
+                            conn.execute(insert(playerwarattacks), {"id": playerpk1, "eloChange":-10, "stars": -1})
+
                         for attack in player["attacks"]:
                             print(f"ATTACK: {attack}")
                             print(f"{attack['order']} {type(attack['order'])}")
