@@ -217,6 +217,11 @@ def warUpdates():
                     print(player["name"])
                     if "attacks" not in player:
                         print(f'{player["name"]} did not attack')
+                        if json["state"] == "warEnded":
+                            playerpk1 = f'{json["startTime"]}{player["tag"]}---0'
+                            playerpk2 = f'{json["startTime"]}{player["tag"]}---00'
+                            conn.execute(insert(playerwarattacks), {"id": playerpk1, "stars": -1})
+                            conn.execute(insert(playerwarattacks), {"id": playerpk2, "stars": -1})
                     else:
                         for attack in player["attacks"]:
                             print(f"ATTACK: {attack}")
