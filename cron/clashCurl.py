@@ -175,7 +175,7 @@ def warUpdates():
             conn.commit()
 
 
-            if json["state"] != "inWar" && json["state"] != "warEnded":
+            if json["state"] != "inWar" and json["state"] != "warEnded":
                 print("Clan not in war")
                 return
     
