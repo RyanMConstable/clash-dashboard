@@ -119,7 +119,7 @@ async def get_clan_dashboard(
         #PLAYER ELO INFO
         stmt = select(playerlist).where(
                 playerlist.c.clantag == fulltag
-                ))
+                )
         clanmembers = conn.execute(stmt)
 
 
