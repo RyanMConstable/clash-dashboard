@@ -121,6 +121,9 @@ async def get_clan_dashboard(
                 playerlist.c.clantag == fulltag
                 )
         clanmembers = conn.execute(stmt)
+        memberlist = []
+        for member in clanmembers:
+            memberlist.append([member[0], member[2]])
 
 
-    return {"status": "ok", "clanvalues": result, "clanname": clanname[1], "clanmemberattacks": clanmembers}
+    return {"status": "ok", "clanvalues": result, "clanname": clanname[1], "clanmemberattacks": memberlist}
