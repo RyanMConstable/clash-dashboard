@@ -44,7 +44,7 @@ function ClanDashboard() {
 	  fetchClanData();
   }, [clantag]);
 
-const tableHeaders = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+const tableHeaders = ["Name", "Elo", "Total Stars", "Destruction %", "3 Stars", "2 Stars", "1 Stars", "0 Stars", "Missed Attacks", "Total Attacks"]
 
 console.log("Error")
 console.log(error)
