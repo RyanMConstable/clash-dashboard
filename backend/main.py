@@ -104,6 +104,7 @@ async def get_clan_dashboard(
     clanwars = Table("clanwars", metadata, autoload_with=engine)
     clanlist = Table("clanlist", metadata, autoload_with=engine)
     playerlist = Table("playerlist", metadata, autoload_with=engine)
+    playerwarattacks = Table("playerwarattacks", metadata, autoload_with=engine)
     
     with engine.connect() as conn:
         #CURRENT WAR INFO
@@ -123,7 +124,40 @@ async def get_clan_dashboard(
         clanmembers = conn.execute(stmt)
         memberlist = []
         for member in clanmembers:
-            memberlist.append([member[0], member[2]])
+            amembersattacks = conn.execute(select(playerwarattacks).where(
+                    playerwarattacks.c.tag == member[0]
+                    )).fetchall()
+
+            print(member[2])
+            elo = 0
+            stars = 0
+            destructionPercentage = 0
+            stars3 = 0
+            stars2 = 0
+            stars1 = 0
+            stars0 = 0
+            unusedattacks = 0
+            numberOfWars = 0
+
+            for attack in amembersattacks:
+                print(attack)
+                print(attack[5])
+                elo += attack[13]
+                if attack[5] == 0:
+                    stars0 += 1
+                elif attack[5] == 1:
+                    stars1 += 1
+                elif attack[5] == 2:
+                    stars2 += 1
+                elif attack[5] == 3:
+                    stars3 += 1
+                stars += attack[5]
+                destructionPercentage += attack[6]
+                numberOfWars += 1
+
+
+            memberlist.append([member[2], elo, stars, destructionPercentage, stars3, stars2, stars1, stars0, unusedattacks, numberOfWars])
+
 
 
     return {"status": "ok", "clanvalues": result, "clanname": clanname[1], "clanmemberattacks": memberlist}
