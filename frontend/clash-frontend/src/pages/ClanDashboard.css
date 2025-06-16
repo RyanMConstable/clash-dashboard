@@ -59,3 +59,27 @@
   background-color: #ffffff;
   margin: 10px;
 }
+
+.elo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  font-family: sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.elo-table th,
+.elo-table td {
+  border: 1px solid #ddd;
+  padding: 10px 14px;
+  text-align: center;
+}
+
+.elo-table thead {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.elo-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
