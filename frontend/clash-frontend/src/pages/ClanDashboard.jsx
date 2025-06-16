@@ -12,6 +12,7 @@ function ClanDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [clanname, setClanname] = useState('');
+  const [clanmemberelo, setClanmemberelo] = useState('');
 
 
 
@@ -25,6 +26,7 @@ function ClanDashboard() {
 			  const data = await response.json();
 			  setClanData(data.clanvalues);
 			  setClanname(data.clanname);
+			  setClanmemberelo(data.clanmemberattacks);
 			  if (data.clanvalues === null) {
 				  setError("Clan Values Empty")
 			  }
@@ -41,6 +43,22 @@ function ClanDashboard() {
 
 	  fetchClanData();
   }, [clantag]);
+
+
+const maxCols = Math.max(...clanmemberelo.map(member => member.length));
+const tableHeaders = [...Array(maxCols)].map((_, i) =>
+	<th key={i}>{i === 0 ? "Name" : `Match ${i}`}</th>
+);
+
+const tableRows = clanmemberelo.map((member, rowIdx) => (
+	<tr key={rowIdx}>
+	{[...Array(maxCols)].map((_, colIdx) => (
+		<td key={colIdx}>
+		{member[colIdx] !== undefined ? member[colIdx] : ""}
+		</td>
+	))}
+	</tr>
+));
 
 console.log("Error")
 console.log(error)
@@ -204,9 +222,17 @@ if (!error) {
 	  </div>
       </div>
 
-      <div>
-	  <h1>Testing</h1>
+      <div className="elo-table-wrapper">
+	<h2>Clan Member ELO History</h2>
+	<table className="elo-table">
+	  <thead>
+	  	<tr>{tableHeaders}</tr>
+	  </thead>
+	  <tbody>{tableRows}</tbody>
+	</table>
+
       </div>
+
     </>
   ) 
 }
@@ -225,5 +251,6 @@ if (error) {
   ) 
 }
 }
+
 
 export default ClanDashboard 
