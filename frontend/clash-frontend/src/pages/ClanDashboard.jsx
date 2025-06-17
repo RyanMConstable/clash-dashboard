@@ -97,7 +97,9 @@ if (!error) {
       <div className="dashboard-container">
 
       <div class="attackusage">
+      <div class="chart">
       <h1>Current War</h1>
+	  </div>
 	  <div class="chart">
 	  <h3>Attack usage</h3>
 	  <div class="attack-usage-container">
