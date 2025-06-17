@@ -134,7 +134,7 @@ def updateHistoryTables():
             if result[2] != badgeLink:
                 stmt = (
                         update(clanlist)
-                        .where(clanlist.c.clantag == tag)
+                        .where(clanlist.c.clantag == clan)
                         .values(badgeurl=badgeLink)
                         )
                 conn.execute(stmt)
