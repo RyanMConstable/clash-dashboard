@@ -94,6 +94,7 @@ if (!error) {
   return (
     <>
       <div class="clanname">
+	<img src={clanimage} />
         <h1>{ clanname }</h1>
 	<img src={clanimage} />
       </div>
@@ -236,6 +237,7 @@ if (error) {
   return (
     <>
       <div class="clanname">
+	<img src={ clanimage } />
         <h1>{ clanname }</h1>
 	<img src={ clanimage } />
       </div>
