@@ -89,6 +89,7 @@ if (!error) {
 	];
 }
 
+console.log(clanimage)
 if (!error) {
   return (
     <>
@@ -236,6 +237,7 @@ if (error) {
     <>
       <div class="clanname">
         <h1>{ clanname }</h1>
+	<img src={ clanimage } />
       </div>
 
       <div class="attackusage">
