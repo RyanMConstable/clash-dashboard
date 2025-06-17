@@ -97,8 +97,8 @@ if (!error) {
       <div className="dashboard-container">
       <div class="attackusage">
 	  <h1>Current War</h1>
-	  <h2>Attack usage</h2>
 	  <div class="chart">
+	  <h2>Attack usage</h2>
 	  	<PieChart width={150} height={100}>
 	  		<Pie
 	  			data={pieData}
@@ -134,8 +134,8 @@ if (!error) {
 	  		<Tooltip />
 	  	</PieChart>
 	  </div>
-          <h2>Current Stars</h2>
 	  <div class="chart">
+          <h2>Current Stars</h2>
 	  	<PieChart width={150} height={100}>
 	  		<Pie
 	  			data={pieDataStars}
@@ -171,8 +171,8 @@ if (!error) {
 	  		<Tooltip />
 	  	</PieChart>
 	  </div>
-          <h2>Destruction Percentage</h2>
 	  <div class="chart">
+          <h2>Destruction Percentage</h2>
 	  	<PieChart width={150} height={100}>
 	  		<Pie
 	  			data={pieDataDestruction}
