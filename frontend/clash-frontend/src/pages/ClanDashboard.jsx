@@ -31,6 +31,7 @@ function ClanDashboard() {
 			  setClanData(data.clanvalues);
 			  setClanname(data.clanname);
 			  setClanmemberelo(data.clanmemberattacks);
+			  setClanImage(data.clanbadge);
 			  if (data.clanvalues === null) {
 				  setError("Clan Values Empty")
 			  }
@@ -93,6 +94,7 @@ if (!error) {
     <>
       <div class="clanname">
         <h1>{ clanname }</h1>
+	<img src={clanimage} />
       </div>
 
       <div className="dashboard-container">

@@ -163,4 +163,4 @@ async def get_clan_dashboard(
 
 
 
-    return {"status": "ok", "clanvalues": result, "clanname": clanname[1], "clanmemberattacks": memberlist, "clanbadage": clanname[2]}
+    return {"status": "ok", "clanvalues": result, "clanname": clanname[1], "clanmemberattacks": memberlist, "clanbadge": clanname[2]}
