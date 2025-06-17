@@ -238,13 +238,13 @@ def warUpdates():
                         if json["state"] == "warEnded" and result2MissedAttack == None:
                             playerpk1 = f'{json["startTime"]}{player["tag"]}---0'
                             playerpk2 = f'{json["startTime"]}{player["tag"]}---00'
-                            conn.execute(insert(playerwarattacks), {"id": playerpk1, "elochange": -10, "stars": -1})
-                            conn.execute(insert(playerwarattacks), {"id": playerpk2, "elochange": -10, "stars": -1})
+                            conn.execute(insert(playerwarattacks), {"id": playerpk1, "elochange": -10, "stars": -1, "tag": player["tag"], "clantag": json["clan"]["tag"]})
+                            conn.execute(insert(playerwarattacks), {"id": playerpk2, "elochange": -10, "stars": -1, "tag": player["tag"], "clantag": json["clan"]["tag"]})
                     else:
                         if len(player["attacks"]) == 1 and json["state"] == "warEnded":
                             if resultMissedAttack == None:
                                 playerpk1 = f'{json["startTime"]}{player["tag"]}---0'
-                                conn.execute(insert(playerwarattacks), {"id": playerpk1, "elochange": -10, "stars": -1})
+                                conn.execute(insert(playerwarattacks), {"id": playerpk1, "elochange": -10, "stars": -1, "tag": player["tag"], "clantag": json["clan"]["tag"]})
 
                         for attack in player["attacks"]:
                             print(f"ATTACK: {attack}")
