@@ -127,7 +127,7 @@ def updateHistoryTables():
 
             conn.execute(insert(clanhistory), insertDict)
 
-            badgeLink = json["badgeUrls"]["small"]
+            '''badgeLink = json["badgeUrls"]["small"]
             result = conn.execute(select(clanlist).where(
                     clanlist.c.clantag == clan
                     )).fetchone()
@@ -137,7 +137,7 @@ def updateHistoryTables():
                         .where(clanlist.c.clantag == tag)
                         .values(badgeurl=badgeLink)
                         )
-                conn.execute(stmt)
+                conn.execute(stmt)'''
 
 
             conn.commit()
@@ -232,15 +232,19 @@ def warUpdates():
                     print(player["name"])
                     if "attacks" not in player:
                         print(f'{player["name"]} did not attack')
-                        if json["state"] == "warEnded":
+                        resultMissedAttack = conn.execute(select(playerwarattacks).where(playerwarattacks.c.id == f'{json["startTime"]}{player["tag"]}---0')).fetchone()
+                        result2MissedAttack = conn.execute(select(playerwarattacks).where(playerwarattacks.c.id == f'{json["startTime"]}{player["tag"]}---00')).fetchone()
+                        
+                        if json["state"] == "warEnded" and result2MissedAttack == None:
                             playerpk1 = f'{json["startTime"]}{player["tag"]}---0'
                             playerpk2 = f'{json["startTime"]}{player["tag"]}---00'
-                            conn.execute(insert(playerwarattacks), {"id": playerpk1, "eloChange":-10, "stars": -1})
-                            conn.execute(insert(playerwarattacks), {"id": playerpk2, "eloChange":-10, "stars": -1})
+                            conn.execute(insert(playerwarattacks), {"id": playerpk1, "elochange": -10, "stars": -1})
+                            conn.execute(insert(playerwarattacks), {"id": playerpk2, "elochange": -10, "stars": -1})
                     else:
                         if len(player["attacks"]) == 1 and json["state"] == "warEnded":
-                            playerpk1 = f'{json["startTime"]}{player["tag"]}---0'
-                            conn.execute(insert(playerwarattacks), {"id": playerpk1, "eloChange":-10, "stars": -1})
+                            if resultMissedAttack == None:
+                                playerpk1 = f'{json["startTime"]}{player["tag"]}---0'
+                                conn.execute(insert(playerwarattacks), {"id": playerpk1, "elochange": -10, "stars": -1})
 
                         for attack in player["attacks"]:
                             print(f"ATTACK: {attack}")
