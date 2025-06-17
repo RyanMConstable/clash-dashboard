@@ -9,7 +9,7 @@
   padding: 20px;
   box-sizing: border-box;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  box-shadow: 0 0 24px rgba(0,0,0,0.2);
   border-radius: 16px;
   background-color: #ffffff;
 }
@@ -91,6 +91,10 @@
   font-weight: 600;
   color: #333;
   user-select: none;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
 }
 
 /* Table body rows */
