@@ -153,6 +153,7 @@ async def get_clan_dashboard(
                     stars3 += 1
                 elif attack[5] == -1:
                     unusedattacks += 1
+                    stars += 1
                 stars += attack[5]
                 destructionPercentage += attack[6]
                 numberOfWars += 1
