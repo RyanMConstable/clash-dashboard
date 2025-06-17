@@ -16,6 +16,7 @@ function ClanDashboard() {
   const [error, setError] = useState(null);
   const [clanname, setClanname] = useState('');
   const [clanmemberelo, setClanmemberelo] = useState('');
+  const [clanimage, setClanImage] = useState('');
 
 
 
