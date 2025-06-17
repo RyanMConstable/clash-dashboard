@@ -101,7 +101,7 @@ if (!error) {
       <h1>Current War</h1>
 	  </div>
 	  <div class="chart">
-	  <h3>Attack usage</h3>
+	  <h2>Attack usage</h2>
 	  <div class="attack-usage-container">
 	  	<PieChart width={150} height={100}>
 	  		<Pie
@@ -140,7 +140,7 @@ if (!error) {
 	  </div>
 	  </div>
 	  <div class="chart">
-          <h3>Current Stars</h3>
+          <h2>Current Stars</h2>
 	  <div className="attack-usage-container">
 	  	<PieChart width={150} height={100}>
 	  		<Pie
@@ -179,7 +179,7 @@ if (!error) {
 	  </div>
 	  </div>
 	  <div class="chart">
-          <h3>Destruction Percentage</h3>
+          <h2>Destruction Percentage</h2>
 	  <div className="attack-usage-container">
 	  	<PieChart width={150} height={100}>
 	  		<Pie
