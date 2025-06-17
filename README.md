@@ -1,7 +1,7 @@
 # Clash-Dashboard
 This is a project I created for my own personal knowledge. Use it however you would like just note it does utilize your own personal JWT from the clash of clans API.
 
-CURRENTLY A WORK IN PROGRESS
+CURRENTLY A WORK IN PROGRESS --- USE WITH BUGS
 # Setup
 Install Docker and Docker Compose! 
 
@@ -12,7 +12,7 @@ Install Docker and Docker Compose!
 5) You can now visit the frontend in the browser
 
 # Status
-The database is in a workable state, player and clan history are recorded every 15 minutes and recorded. The UI boots up and is able to create a user row in the signup table.
+After setup there are currently graphs for the current wars (not including cwl) and a table of all users and their elo rankings calculated from previous clan war attacks (not including cwl)
 
 # Goal
 - Make an easy to setup fully fleshed out clash of clans dashboard with real time texting alerts.
@@ -23,5 +23,4 @@ The database is in a workable state, player and clan history are recorded every 
 - Add logging, most likely another container with everything flowing into it
 - Add TLS internal use
 - Add proper authorization
-- Add elo for each user on each clan page for x amount of wars and clan war leagues
 - Add databases for cwl
