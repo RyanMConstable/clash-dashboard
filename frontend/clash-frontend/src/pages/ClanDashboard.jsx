@@ -3,6 +3,7 @@ import React, {useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 import "./ClanDashboard.css"
 import { useReactTable, getCoreRowModel, flexRender, getFilteredRowModel, getSortedRowModel} from '@tanstack/react-table';
+import EloTable from "./EloTable";
 
 const tableHeaders = ["Name", "Elo", "Total Stars", "Destruction %", "3 Stars", "2 Stars", "1 Stars", "0 Stars", "Missed Attacks", "Total Attacks"]
 const COLORS = ['#8096a8', '#70d484'];
@@ -93,6 +94,7 @@ if (!error) {
         <h1>{ clanname }</h1>
       </div>
 
+      <div className="dashboard-container">
       <div class="attackusage">
 	  <h1>Current War</h1>
 	  <h2>Attack usage</h2>
@@ -208,8 +210,9 @@ if (!error) {
 	  </div>
       </div>
      
-      <div>
-
+      <div className="elo-table-container">
+          <EloTable clanmemberelo={clanmemberelo} />	
+      </div>
       </div>
 
     </>
