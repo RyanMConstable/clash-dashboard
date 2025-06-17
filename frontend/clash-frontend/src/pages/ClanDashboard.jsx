@@ -95,11 +95,12 @@ if (!error) {
       </div>
 
       <div className="dashboard-container">
+
       <div class="attackusage">
-	  <div className="attack-usage-container">
-	  <h1>Current War</h1>
+      <h1>Current War</h1>
 	  <div class="chart">
 	  <h3>Attack usage</h3>
+	  <div class="attack-usage-container">
 	  	<PieChart width={150} height={100}>
 	  		<Pie
 	  			data={pieData}
@@ -137,8 +138,8 @@ if (!error) {
 	  </div>
 	  </div>
 	  <div class="chart">
-	  <div className="attack-usage-container">
           <h3>Current Stars</h3>
+	  <div className="attack-usage-container">
 	  	<PieChart width={150} height={100}>
 	  		<Pie
 	  			data={pieDataStars}
@@ -176,8 +177,8 @@ if (!error) {
 	  </div>
 	  </div>
 	  <div class="chart">
-	  <div className="attack-usage-container">
           <h3>Destruction Percentage</h3>
+	  <div className="attack-usage-container">
 	  	<PieChart width={150} height={100}>
 	  		<Pie
 	  			data={pieDataDestruction}

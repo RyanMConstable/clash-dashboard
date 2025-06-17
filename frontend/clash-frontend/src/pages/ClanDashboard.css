@@ -1,6 +1,6 @@
 .chart {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
@@ -28,6 +28,7 @@
   border-radius: 16px;
   background-color: #ffffff;
 }
+
 .destruction {
   display: flex;
   flex-direction: row;
@@ -43,6 +44,7 @@
   border-radius: 16px;
   background-color: #ffffff;
 }
+
 .clanname {
   display: flex;
   flex-direction: row;
@@ -161,4 +163,9 @@
 	gap: 20px;
 	align-items: flex-start;
 	padding: 20px;
+}
+
+.attack-usage-container {
+  display: flex;
+  flex-direction: row;
 }
