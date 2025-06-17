@@ -124,7 +124,11 @@ def updateHistoryTables():
             insertDict["location"] = json["location"]["name"]
             insertDict["requiredtrophies"] = json["requiredTrophies"]
 
+
             conn.execute(insert(clanhistory), insertDict)
+
+            badgeLink = json["badgeUrls"]["small"]
+
             conn.commit()
 
 def warUpdates():
