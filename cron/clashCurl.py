@@ -127,7 +127,7 @@ def updateHistoryTables():
 
             conn.execute(insert(clanhistory), insertDict)
 
-            '''badgeLink = json["badgeUrls"]["small"]
+            badgeLink = json["badgeUrls"]["small"]
             result = conn.execute(select(clanlist).where(
                     clanlist.c.clantag == clan
                     )).fetchone()
@@ -137,7 +137,7 @@ def updateHistoryTables():
                         .where(clanlist.c.clantag == tag)
                         .values(badgeurl=badgeLink)
                         )
-                conn.execute(stmt)'''
+                conn.execute(stmt)
 
 
             conn.commit()
