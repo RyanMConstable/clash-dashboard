@@ -2,8 +2,9 @@ import {useParams } from 'react-router-dom';
 import React, {useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 import "./ClanDashboard.css"
-import { useReactTable, getCoreRowModel, flexRender, } from '@tanstack/react-table';
+import { useReactTable, getCoreRowModel, flexRender, getFilteredRowModel, getSortedRowModel} from '@tanstack/react-table';
 
+const tableHeaders = ["Name", "Elo", "Total Stars", "Destruction %", "3 Stars", "2 Stars", "1 Stars", "0 Stars", "Missed Attacks", "Total Attacks"]
 const COLORS = ['#8096a8', '#70d484'];
 const ENEMYCOLORS = ['#8096a8', '#c22f36'];
 
@@ -44,28 +45,6 @@ function ClanDashboard() {
 
 	  fetchClanData();
   }, [clantag]);
-
-const tableHeaders = ["Name", "Elo", "Total Stars", "Destruction %", "3 Stars", "2 Stars", "1 Stars", "0 Stars", "Missed Attacks", "Total Attacks"]
-
-const data = Array.isArray(clanmemberelo) 
-       ? 	clanmemberelo.map((row) => {
-	const obj = {};
-	tableHeaders.forEach((key, i) => {
-		obj[key] = row[i];
-	});
-	return obj;
-}) : [];
-
-const columns = tableHeaders.map((header) => ({
-	accessorKey: header,
-	header: header,
-}));
-
-const table = useReactTable({
-	data,
-	columns,
-	getCoreRowModel: getCoreRowModel(),
-});
 
 console.log("Error")
 console.log(error)
@@ -228,32 +207,9 @@ if (!error) {
 	  	</PieChart>
 	  </div>
       </div>
-
+     
       <div>
-        <table className="elo-table">
-	  <thead>
-	  {table.getHeaderGroups().map((headerGroup) => (
-		  <tr key={headerGroup.id}>
-		  {headerGroup.headers.map((header) => (
-			  <th key={header.id}>
-			  {flexRender(header.column.columnDef.header, header.getContext())}
-			  </th>
-		  ))}
-		  </tr>
-	  ))}
-	  </thead>
-	  <tbody>
-	  {table.getRowModel().rows.map((row) => (
-		  <tr key={row.id}>
-		  {row.getVisibleCells().map((cell) => (
-			  <td key={cell.id}>
-			  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-			  </td>
-		  ))}
-		  </tr>
-	  ))}
-	  </tbody>
-	  </table>
+
       </div>
 
     </>
