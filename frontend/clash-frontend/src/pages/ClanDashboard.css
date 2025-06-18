@@ -87,6 +87,7 @@
 
 /* Target your elo-table */
 .elo-table {
+  font-family: "Clash", sans-serif;
   width: 100%;
   border-collapse: collapse;
   color: #222;
