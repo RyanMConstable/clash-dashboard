@@ -75,6 +75,7 @@
 
 /* Container for the elo-table to give floating box effect */
 .elo-table-container {
+  font-family: "Clash", sans-serif;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
