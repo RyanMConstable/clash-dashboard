@@ -17,6 +17,7 @@ function ClanDashboard() {
   const [clanname, setClanname] = useState('');
   const [clanmemberelo, setClanmemberelo] = useState('');
   const [clanimage, setClanImage] = useState('');
+  const [warstatus, setWarStatus] = useState('');
 
 
 
@@ -32,6 +33,7 @@ function ClanDashboard() {
 			  setClanname(data.clanname);
 			  setClanmemberelo(data.clanmemberattacks);
 			  setClanImage(data.clanbadge);
+			  setWarStatus(data.warstatus);
 			  if (data.clanvalues === null) {
 				  setError("Clan Values Empty")
 			  }
