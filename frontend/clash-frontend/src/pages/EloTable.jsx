@@ -28,6 +28,7 @@ const EloTable = ({ clanmemberelo }) => {
       accessorKey: header,
       header: () => <span>{header}</span>,
       cell: (info) => info.getValue(),
+      maxSize: 100;
     }));
   }, []);
 
