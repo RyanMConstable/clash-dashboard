@@ -7,7 +7,7 @@ import {
 } from "@tanstack/react-table";
 
 const tableHeaders = [
-	  "Name", "Elo", "Total Stars", "Destruction %",
+	  "Name", "Elo", "Total Stars", "Dmg %",
 	  "3 Stars", "2 Stars", "1 Stars", "0 Stars",
 	  "Missed Attacks", "Total Attacks"
 ];
