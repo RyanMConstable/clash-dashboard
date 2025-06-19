@@ -80,12 +80,12 @@ if (!error) {
 		{ name: 'Stars Gained', value: clanData.enemystars }
 	];
 	pieDataDestruction = [
-		{ name: 'Destruction Percentage', value: 100 - clanData.destructionpercentage },
-		{ name: '', value: clanData.destructionpercentage }
+		{ name: 'Intact', value: 100 - clanData.destructionpercentage },
+		{ name: 'Dmg', value: clanData.destructionpercentage }
 	];
 	pieDataEnemyDestruction = [
-		{ name: 'Destruction Percentage', value: 100 - clanData.enemydestructionpercentage },
-		{ name: '', value: clanData.enemydestructionpercentage }
+		{ name: 'Intact', value: 100 - clanData.enemydestructionpercentage },
+		{ name: 'Dmg', value: clanData.enemydestructionpercentage }
 	];
 }
 
