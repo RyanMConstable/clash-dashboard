@@ -105,7 +105,7 @@ if (!error) {
 
       <div class="attackusage">
       <div class="chart">
-      <h1>Current War</h1>
+      {warstatus === "inWar" && <h1>Current War</h1>}
 	  </div>
 	  <div class="chart">
 	  <h2>Attack usage</h2>
