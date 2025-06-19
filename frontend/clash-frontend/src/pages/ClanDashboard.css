@@ -141,7 +141,7 @@
   .elo-table td,
   .elo-table tr {
     display: block;
-    max-width: 100px;
+    max-width: 50px;
 }
 
 .elo-table thead tr {
