@@ -183,7 +183,7 @@ def warUpdates():
             stmt = (
                     update(clanlist)
                     .where(clanlist.c.clantag == clan)
-                    .values(warstatus=json["status"])
+                    .values(warstatus=json["state"])
                     )
             conn.execute(stmt)
 
