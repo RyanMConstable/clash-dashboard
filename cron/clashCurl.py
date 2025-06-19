@@ -179,6 +179,14 @@ def warUpdates():
             print(json)
             print(f"MEMBERJSON: {memberjson}")
 
+            #Do clanlist state update here
+            stmt = (
+                    update(clanlist)
+                    .where(clanlist.c.clantag == clan)
+                    .values(warstatus=json["status"])
+                    )
+            conn.execute(stmt)
+
             for member in memberjson["items"]:
                 memberData = {"playertag":member["tag"], "clantag":clan, "playername":member["name"]}
                 stmt = insert(playerlist).values(memberData)
