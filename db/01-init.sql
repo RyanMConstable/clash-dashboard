@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS clanhistory (
 );
 
 CREATE TABLE IF NOT EXISTS clanlist (
-  clantag VARCHAR(15) PRIMARY KEY, clanname VARCHAR(100), badgeurl VARCHAR(200), warstatus VARCHAR(10)
+  clantag VARCHAR(15) PRIMARY KEY, clanname VARCHAR(100), badgeurl VARCHAR(200), warstatus VARCHAR(15)
 );
 
 CREATE TABLE IF NOT EXISTS playerlist (
