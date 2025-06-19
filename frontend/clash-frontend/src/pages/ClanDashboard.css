@@ -92,6 +92,7 @@
   border-collapse: collapse;
   color: #222;
   font-size: 14px;
+  overflow-x: visible;
 }
 
 /* Table header */
