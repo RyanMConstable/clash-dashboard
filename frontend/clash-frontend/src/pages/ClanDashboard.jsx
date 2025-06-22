@@ -18,6 +18,7 @@ function ClanDashboard() {
   const [clanmemberelo, setClanmemberelo] = useState('');
   const [clanimage, setClanImage] = useState('');
   const [warstatus, setWarStatus] = useState('');
+  const [warresult, setWarResult] = useState('');
 
 
 
@@ -36,6 +37,16 @@ function ClanDashboard() {
 			  setWarStatus(data.warstatus);
 			  if (data.clanvalues === null) {
 				  setError("Clan Values Empty")
+			  } else {
+				  if (warresult != "inWar") {
+					  if (data.clanvalues.stars > data.clanvalues.enemystars) {
+						  setWarResult("WIN")
+					  } else if (data.clanvalues.stars < data.clanvalues.enemystars) {
+						  setWarResult("LOSS")
+					  } else {
+						  setWarResult("TIE")
+					  }
+				  }
 			  }
 			  console.log("Set data")
 			  console.log(data)
