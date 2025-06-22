@@ -1,7 +1,7 @@
 # Clash-Dashboard
 This is a project I created for my own personal knowledge. Use it however you would like just note it does utilize your own personal JWT from the clash of clans API.
 
-CURRENTLY A WORK IN PROGRESS --- USE WITH BUGS
+CURRENTLY A WORK IN PROGRESS --- USE WITH BUGS OR INCOMPLETION
 # Setup
 Install Docker and Docker Compose! 
 
