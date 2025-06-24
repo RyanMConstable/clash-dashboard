@@ -42,9 +42,9 @@ function ClanDashboard() {
 					  if (data.clanvalues.stars > data.clanvalues.enemystars) {
 						  setWarResult(<span style={{ color: 'green' }}>WIN</span>)
 					  } else if (data.clanvalues.stars < data.clanvalues.enemystars) {
-						  setWarResult(<span style={{ color: 'red' }}>WIN</span>)
+						  setWarResult(<span style={{ color: 'red' }}>LOSS</span>)
 					  } else {
-						  setWarResult(<span style={{ color: 'green' }}>WIN</span>)
+						  setWarResult(<span style={{ color: 'green' }}>TIE</span>)
 					  }
 				  }
 			  }
