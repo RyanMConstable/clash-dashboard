@@ -13,18 +13,19 @@
   background-color: white;
   padding: 20px 30px;
   border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  font-family: 'Burbank Big Condensed', sans-serif; /* Or your actual custom font */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  font-family: 'Burbank Big Condensed', sans-serif; /* or match your actual font */
   font-weight: bold;
   font-size: 1.5rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .sticky-nav p {
   margin: 0;
+  font-size: 1.5rem;
+  color: #222;
 }
 
 .sticky-nav form {
@@ -35,10 +36,12 @@
 
 .sticky-nav input[type="text"] {
   padding: 10px 15px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
   font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 12px;
   font-family: inherit;
+  width: 220px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .sticky-nav button {
@@ -46,10 +49,10 @@
   background-color: #ffc400;
   color: #000;
   font-size: 1rem;
-  font-family: inherit;
   font-weight: bold;
+  font-family: inherit;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   box-shadow: 0 4px 0 #b98e00;
   transition: transform 0.1s ease;
@@ -63,3 +66,4 @@
   transform: translateY(2px);
   box-shadow: 0 2px 0 #b98e00;
 }
+
