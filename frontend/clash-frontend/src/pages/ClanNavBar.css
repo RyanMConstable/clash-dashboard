@@ -6,20 +6,21 @@
 }
 
 .sticky-nav {
-  background-color: white;
-  border-radius: 20px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  text-align: center;
+  width: 100vw;
+  background-color: #1c1c1c;
+  padding: 1.5rem 2rem;
   font-family: "Clash", sans-serif;
-  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  border-bottom: 4px solid #f8c200;
 }
 
 .sticky-nav p {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin: 0 0 1rem 0;
-  color: #222;
-  text-shadow: 2px 2px 0 #f8c200, 4px 4px 0 #000;
+  color: #f8c200;
+  text-align: center;
+  text-shadow: 2px 2px 0 #000, 4px 4px 0 #000;
 }
 
 .sticky-nav form {
@@ -33,20 +34,27 @@
 .sticky-nav input[type="text"] {
   padding: 0.6rem 1rem;
   border-radius: 12px;
-  border: 3px solid #333;
+  border: 3px solid #f8c200;
   font-size: 1rem;
-  width: 220px;
-  font-family: "Clash", sans-serif;
-  color: #000;
+  width: 250px;
+  font-family: 'Luckiest Guy', cursive;
+  color: #fff;
+  background-color: #333;
+  outline: none;
+}
+
+.sticky-nav input[type="text"]::placeholder {
+  color: #bbb;
 }
 
 .sticky-nav button[type="submit"] {
   padding: 0.6rem 1.2rem;
   background-color: #f8c200;
-  border: 3px solid #333;
+  border: 3px solid #000;
   border-radius: 12px;
   font-size: 1rem;
   font-family: "Clash", sans-serif;
+  color: #000;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
