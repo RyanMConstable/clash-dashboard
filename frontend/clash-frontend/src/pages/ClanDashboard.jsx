@@ -2,6 +2,7 @@ import {useParams } from 'react-router-dom';
 import React, {useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 import "./ClanDashboard.css"
+import ClanNavBar from "./ClanNavBar"
 import { useReactTable, getCoreRowModel, flexRender, getFilteredRowModel, getSortedRowModel} from '@tanstack/react-table';
 import EloTable from "./EloTable";
 
@@ -106,6 +107,7 @@ console.log(clanimage)
 if (!error) {
   return (
     <>
+      <ClanNavBar />
       <div class="clanname">
 	<img src={clanimage} />
         <h1>{ clanname }</h1>
