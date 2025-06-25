@@ -1,5 +1,5 @@
 # Clash-Dashboard
-This is a project I created for my own personal knowledge. Use it however you would like just note it does utilize your own personal JWT from the clash of clans API.
+This is a completely self hosted clash of clans admin panel. Clash-Dashboard allows you to self host your own clash of clans dashboard panel. This panel shows the users statistics that were previously unknown. 
 
 CURRENTLY A WORK IN PROGRESS --- USE WITH BUGS OR INCOMPLETION
 # Setup
