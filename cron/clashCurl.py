@@ -157,6 +157,8 @@ def warUpdates():
         for row in result:
             clans.append(row[0])
 
+        print(f"\nCLANS: {clans}")
+
 
         for clan in clans:
             #Make a list of dictionaries where each dictionary is a player
@@ -176,7 +178,7 @@ def warUpdates():
             print(result)
             json = result.json()
             memberjson = memberresult.json()
-            print(json)
+            print(json["state"])
             print(f"MEMBERJSON: {memberjson}")
 
             #Do clanlist state update here
@@ -186,6 +188,8 @@ def warUpdates():
                     .values(warstatus=json["state"])
                     )
             conn.execute(stmt)
+            print("Executing clanlist")
+            conn.commit()
 
             for member in memberjson["items"]:
                 memberData = {"playertag":member["tag"], "clantag":clan, "playername":member["name"]}
@@ -200,7 +204,7 @@ def warUpdates():
 
             if json["state"] != "inWar" and json["state"] != "warEnded":
                 print("Clan not in war")
-                return
+                continue
     
             pk = json["startTime"] + json["clan"]["tag"]
 
