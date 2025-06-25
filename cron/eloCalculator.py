@@ -27,8 +27,8 @@ def playerElo(currentClanWarJSON, playerTag, attack):
     destruction = attack["destructionPercentage"]
     finishTime = attack["duration"]
     enemyPosition = enemyInfo["mapPosition"]
-    enemyTH = enemyInfo["townhallLevel"]
-    TH = playerInfo["townhallLevel"]
+    enemyTH = int(enemyInfo["townhallLevel"])
+    TH = int(playerInfo["townhallLevel"])
 
     #Here is the elo calculation
     eloChange = 0
