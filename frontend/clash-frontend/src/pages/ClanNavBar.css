@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Clash';
+  src: url('./fonts/Clash_Bold.otf') format('openType');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.sticky-nav {
+  font-family: "Clash", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f5f5f5;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.sticky-nav input[type="text"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.sticky-nav button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sticky-nav button:hover {
+  background-color: #0056b3;
+}
