@@ -2,9 +2,9 @@ import {useParams } from 'react-router-dom';
 import React, {useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 import "./ClanDashboard.css"
-import ClanNavBar from "./ClanNavBar"
 import { useReactTable, getCoreRowModel, flexRender, getFilteredRowModel, getSortedRowModel} from '@tanstack/react-table';
 import EloTable from "./EloTable";
+import ClanNavBar from "./ClanNavBar"
 
 const tableHeaders = ["Name", "Elo", "Total Stars", "Destruction %", "3 Stars", "2 Stars", "1 Stars", "0 Stars", "Missed Attacks", "Total Attacks"]
 const COLORS = ['#8096a8', '#70d484'];
