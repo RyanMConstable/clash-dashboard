@@ -10,28 +10,51 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: #f5f5f5;
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Burbank Big Condensed', sans-serif; /* Or your actual custom font */
+  font-weight: bold;
+  font-size: 1.5rem;
   position: sticky;
   top: 0;
   z-index: 100;
+  margin-bottom: 20px;
+}
+
+.sticky-nav p {
+  margin: 0;
+}
+
+.sticky-nav form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .sticky-nav input[type="text"] {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 10px 15px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
 }
 
 .sticky-nav button {
-  padding: 5px 10px;
+  padding: 10px 20px;
+  background-color: #ffc400;
+  color: #000;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: bold;
   border: none;
-  background-color: #007bff;
-  color: white;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
+  box-shadow: 0 4px 0 #b98e00;
+  transition: transform 0.1s ease;
 }
 
 .sticky-nav button:hover {
-  background-color: #0056b3;
+  back
 }
