@@ -4,7 +4,6 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 import "./ClanDashboard.css"
 import { useReactTable, getCoreRowModel, flexRender, getFilteredRowModel, getSortedRowModel} from '@tanstack/react-table';
 import EloTable from "./EloTable";
-import ClanNavBar from "./ClanNavBar"
 
 const tableHeaders = ["Name", "Elo", "Total Stars", "Destruction %", "3 Stars", "2 Stars", "1 Stars", "0 Stars", "Missed Attacks", "Total Attacks"]
 const COLORS = ['#8096a8', '#70d484'];
@@ -107,7 +106,6 @@ console.log(clanimage)
 if (!error) {
   return (
     <>
-      <ClanNavBar />
       <div class="clanname">
 	<img src={clanimage} />
         <h1>{ clanname }</h1>
