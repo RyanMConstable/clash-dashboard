@@ -6,6 +6,7 @@
 }
 
 .sticky-nav {
+  margin-left: calc(-50vw + 50%);
   width: 100vw;
   background-color: #1c1c1c;
   padding: 1.5rem 2rem;
