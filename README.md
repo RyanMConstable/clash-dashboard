@@ -24,3 +24,6 @@ After setup there are currently graphs for the current wars (not including cwl) 
 - Add TLS internal use
 - Add proper authorization
 - Add databases for cwl
+- Countdown for war prep/war end
+- AI to predict who will win the war or odds for each clan winning
+
