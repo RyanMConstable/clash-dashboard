@@ -111,7 +111,7 @@ async def get_clan_dashboard(
         stmt = select(clanwars).where(
                 func.split_part(clanwars.c.id, '#', 2) == clantag
                 ).order_by(clanwars.c.id.desc())
-        result = conn.execute(stmt).mappings().fetchone()[0]
+        result = conn.execute(stmt).mappings().fetchone()
 
         clanname = conn.execute(select(clanlist).where(
                 clanlist.c.clantag == fulltag
