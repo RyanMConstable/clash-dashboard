@@ -161,10 +161,10 @@ async def get_clan_dashboard(
             memberlist.append([member[2], elo, stars, destructionPercentage, stars3, stars2, stars1, stars0, unusedattacks, numberOfWars])
         
 
-
+    result = dict(result)
     print(type(result))
-    editedResult = result
-    editedResult["destructionpercentage"] = int(result["destructionpercentage"])
-    editedResult["enemydestructionpercentage"] = int(result["enemydestructionpercentage"])
+
+    result["destructionpercentage"] = int(result["destructionpercentage"])
+    result["enemydestructionpercentage"] = int(result["enemydestructionpercentage"])
 
     return {"status": "ok", "clanvalues": editedResult, "clanname": clanname[1], "clanmemberattacks": memberlist, "clanbadge": clanname[2], "warstatus": clanname[3]}
