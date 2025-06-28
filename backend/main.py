@@ -162,6 +162,7 @@ async def get_clan_dashboard(
         
 
 
+    print(result)
     result["destructionpercentage"] = int(result["destructionpercentage"])
     result["enemydestructionpercentage"] = int(result["enemydestructionpercentage"])
 
