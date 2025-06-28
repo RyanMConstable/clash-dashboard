@@ -240,10 +240,10 @@ if (!error) {
 	  </div>
 	  </div>
       </div>
+      </div>
      
       <div className="elo-table-container">
           <EloTable clanmemberelo={clanmemberelo} />	
-      </div>
       </div>
       </div>
 
