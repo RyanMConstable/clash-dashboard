@@ -114,10 +114,10 @@ if (!error) {
 
       <div className="dashboard-container">
 
+      <div class="attackusage">
       <div class="chart">
 	  <p>Timer</p>
       </div>
-      <div class="attackusage">
       <div class="chart">
       {warstatus === "inWar" ? (<h1>Current War</h1>) : (<h1>War Result<br/> {warresult}</h1>)}
 	  </div>
