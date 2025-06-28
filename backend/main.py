@@ -163,7 +163,8 @@ async def get_clan_dashboard(
 
 
     print(result)
-    result["destructionpercentage"] = int(result["destructionpercentage"])
-    result["enemydestructionpercentage"] = int(result["enemydestructionpercentage"])
+    editedResult = result
+    editedResult["destructionpercentage"] = int(result["destructionpercentage"])
+    editedResult["enemydestructionpercentage"] = int(result["enemydestructionpercentage"])
 
-    return {"status": "ok", "clanvalues": result, "clanname": clanname[1], "clanmemberattacks": memberlist, "clanbadge": clanname[2], "warstatus": clanname[3]}
+    return {"status": "ok", "clanvalues": editedResult, "clanname": clanname[1], "clanmemberattacks": memberlist, "clanbadge": clanname[2], "warstatus": clanname[3]}
