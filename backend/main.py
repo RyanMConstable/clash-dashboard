@@ -162,7 +162,7 @@ async def get_clan_dashboard(
         
 
 
-    type(print(result))
+    print(type(result))
     editedResult = result
     editedResult["destructionpercentage"] = int(result["destructionpercentage"])
     editedResult["enemydestructionpercentage"] = int(result["enemydestructionpercentage"])
