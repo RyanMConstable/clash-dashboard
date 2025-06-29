@@ -115,8 +115,10 @@ if (!error) {
       <div className="dashboard-container">
 
       <div class="leftcolumn">
+      <div class="attackusage">
       <div class="chart">
 	  <p>Timer</p>
+      </div>
       </div>
       <div class="attackusage">
       <div class="chart">
