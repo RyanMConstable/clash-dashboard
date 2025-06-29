@@ -117,7 +117,7 @@ if (!error) {
       <div class="leftcolumn">
       <div class="attackusage">
       <div class="chart">
-	  <p>Timer</p>
+	  <h1>Timer</h1>
       </div>
       </div>
       <div class="attackusage">
