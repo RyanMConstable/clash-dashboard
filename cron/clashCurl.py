@@ -233,6 +233,10 @@ def warUpdates():
             insertDict["enemytag"] = json["opponent"]["tag"]
             insertDict["clantag"] = json["clan"]["tag"]
             insertDict["time"] = now
+            insertDict["preperationstarttime"] = json["preparationStartTime"]
+            insertDict["starttime"] = json["startTime"]
+            insertDict["endtime"] = json["endTime"]
+
 
 
             
