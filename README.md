@@ -3,7 +3,7 @@ This is a completely self hosted clash of clans admin panel. Clash-Dashboard all
 
 CURRENTLY A WORK IN PROGRESS --- USE WITH BUGS OR INCOMPLETION
 # Setup
-Install Docker and Docker Compose! 
+Install Docker and Docker Compose! Make sure that it's v2 not v1. docker-compose commands won't work. 
 
 1) Put your official clash of clans api token into the .env file
 2) Make sure port 80 is available on your local computer
