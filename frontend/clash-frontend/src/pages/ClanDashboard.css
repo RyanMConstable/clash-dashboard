@@ -5,6 +5,11 @@
   font-style: normal;
 }
 
+.leftcolumn {
+	flex: 1 1 auto;
+	overflow: auto;
+}
+
 .chart {
   display: flex;
   flex-direction: column;
@@ -85,6 +90,7 @@
   max-width: 100%;
   overflow-x: auto; /* Horizontal scroll on small screens */
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  flex: 0 0 auto;
 }
 
 /* Target your elo-table */
@@ -104,8 +110,10 @@
 }
 
 .elo-table thead th {
-  padding: 12px 16px;
-  text-align: left;
+  white-space: normal;
+  max-width: 7ch; 
+  padding: 2px 4px;
+  text-align: center;
   font-weight: 600;
   color: #333;
   user-select: none;
@@ -126,7 +134,7 @@
 }
 
 .elo-table tbody td {
-	  padding: 12px 16px;
+	  padding: 2px 6px;
 	    color: #444;
     }
 
